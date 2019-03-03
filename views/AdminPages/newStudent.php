@@ -16,7 +16,8 @@
 
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-
+    <link href="https://fonts.googleapis.com/css?family=Signika+Negative:700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700i" rel="stylesheet">
     <style type="text/css">
         html {
             min-width: 300px;
@@ -64,7 +65,7 @@
     <div class="container" >
         <!--        <h1 style="text-align: center">Add New Advisor</h1>-->
         <div id="content-new-Advisor" >
-            <h1 style="text-align: center;margin-bottom: 35px;">Add New Student</h1>
+            <h1 class="headText">Add New Student</h1>
             <form>
                 <div class="form-group row">
                     <label for="exampleFormControlInput1" class="col-sm-3 col-form-label">Student Name</label>
