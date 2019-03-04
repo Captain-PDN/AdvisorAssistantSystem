@@ -18,6 +18,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Signika+Negative:700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700i" rel="stylesheet">
+
     <style type="text/css">
         html {
             min-width: 300px;
@@ -28,92 +29,89 @@
         }
     </style>
 </head>
+
 <body>
-<div >
-    <div  style="background: url('../../images/sky-bg.jpg') no-repeat fixed;background-size: cover;" >
-        <span align="left">
-            <img src="../../images/KU_SubLogo.png" style="height: 200px;width: 200px">
-        </span>
-    </div>
+    <div>
+        <div style="background: url('../../images/sky-bg.jpg') no-repeat fixed; background-size: cover;" >
+            <span align="left">
+                <img src="../../images/KU_SubLogo.png" style="height: 150px; width: 150px">
+            </span>
+        </div>
 
-    <nav class="navbar navbar-inverse">
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand"style="color: white;">CS Advisor Assistant System</a>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav">
+                        <li><a class="active" href="#home">Home</a></li>
+                        <li><a href="#newSubjectAdvisor">Add New Subject</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#"><span class="glyphicon glyphicon glyphicon-user"></span> Hello Advisor</a></li>
+                        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
         <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand"style="color: white">CS Advisor Assistant System</a>
-            </div>
-            <div class="collapse navbar-collapse" id="myNavbar">
-                <ul class="nav navbar-nav">
-                    <li><a class="active" href="#home">Home</a></li>
-                    <li><a href="#newSubjectAdvisor">Add New Subject</a></li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#"><span class="glyphicon glyphicon glyphicon-user"></span> Hello name advisor **edit javascript</a></li>
-                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
-                </ul>
+            <div class="content-details-student" >
+                <h1 class="headText" style="text-align: center;">Student Details</h1>
+                <div class="row student-detail">
+                    <p  class="col-sm-4 ">Student Firstname</p>
+                    <p  class="col-sm-8 ">Student Lastname</p>
+                </div>
+                <div class="row student-detail">
+                    <p  class="col-sm-4 ">Student ID</p>
+                    <p  class="col-sm-8 ">5910400312</p>
+                </div>
+                <div class="row student-detail">
+                    <p  class="col-sm-4 ">Behaviors</p>
+                    <p  contenteditable="true" class="col-sm-8 scrollIt-student"></p>
+                </div>
+                <div class="row student-detail">
+                    <p  class="col-sm-4 ">Prerequisite<br>Subject Grade</p>
+                    <p  class="col-sm-8 ">A</p>
+                </div>
+                <div class="row student-detail">
+                    <p  class="col-sm-4 ">Score In<br>(Subject Name)</p>
+                    <p  class="col-sm-8 ">90</p>
+                </div>
+
+                <div style="width: fit-content; margin: 0 auto;">
+                    <button style="font-weight: 700 !important;" id="btn-add-Student" type="submit" class="btn ">Submit</button>
+                </div>
             </div>
         </div>
-    </nav>
-
-    <div class="container-fluid">
-        <div class="content-details-student" >
-            <h1 class="headText" style="text-align: center">Student Details</h1>
-            <div class="row student-detail">
-                <p  class="col-sm-4 ">Student Name</p>
-                <p  class="col-sm-8 ">Student name lastname</p>
-            </div>
-            <div class="row student-detail">
-                <p  class="col-sm-4 ">Student ID</p>
-                <p  class="col-sm-8 ">5910400312</p>
-            </div>
-            <div class="row student-detail">
-                <p  class="col-sm-4 ">Behaviors</p>
-                <p  contenteditable="true" class="col-sm-8 scrollIt-student"></p>
-            </div>
-            <div class="row student-detail">
-                <p  class="col-sm-4 ">Prerequisite Subject Grade</p>
-                <p  class="col-sm-8 ">A</p>
-            </div>
-            <div class="row student-detail">
-                <p  class="col-sm-4 ">Score in (subject name)</p>
-                <p  class="col-sm-8 ">90</p>
-            </div>
-
-            <div style="width: fit-content;margin: 0 auto;">
-                <button style="font-weight: 700 !important;" id="btn-add-Student" type="submit" class="btn ">Submit</button>
-            </div>
-
-
-        </div>
+    <!--    <div class="container-fluid" >-->
+    <!--                <h1 style="text-align: center">Add New Advisor</h1>-->
+    <!--        <div class="content-details-student" >-->
+    <!--            <h1 class="headText">Student ID </h1>-->
+    <!--            <div class="student-detail">-->
+    <!--                <p  class="col-sm-4 ">Student Name</p>-->
+    <!--                <p  class="col-sm-8 col-form-label">Student name lastname</p>-->
+    <!--            </div>-->
+    <!--            <div class="student-detail">-->
+    <!--                <p class="col-sm-4 col-form-label">Behaviors</p>-->
+    <!--                <p contenteditable="true" class="scrollIt-student col-sm-8 col-form-label"  type="text"></p>-->
+    <!--            </div>-->
+    <!--            <div class="student-detail">-->
+    <!--                <p class="col-sm-4 col-form-label">Prerequisite Subject Grade</p>-->
+    <!--                <p  class="col-sm-8 col-form-label">A </p>-->
+    <!--            </div>-->
+    <!--            <div class="student-detail">-->
+    <!--                <p class="col-sm-4 col-form-label">Score in (subject name) </p>-->
+    <!--                <p  class="col-sm-8 col-form-label">90</p>-->
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--    </div>-->
     </div>
-<!--    <div class="container-fluid" >-->
-<!--        <!--        <h1 style="text-align: center">Add New Advisor</h1>-->-->
-<!--        <div class="content-details-student" >-->
-<!--            <h1 class="headText">Student ID </h1>-->
-<!--            <div class="student-detail">-->
-<!--                <p  class="col-sm-4 ">Student Name</p>-->
-<!--                <p  class="col-sm-8 col-form-label">Student name lastname</p>-->
-<!--            </div>-->
-<!--            <div class="student-detail">-->
-<!--                <p class="col-sm-4 col-form-label">Behaviors</p>-->
-<!--                <p contenteditable="true" class="scrollIt-student col-sm-8 col-form-label"  type="text"></p>-->
-<!--            </div>-->
-<!--            <div class="student-detail">-->
-<!--                <p class="col-sm-4 col-form-label">Prerequisite Subject Grade</p>-->
-<!--                <p  class="col-sm-8 col-form-label">A </p>-->
-<!--            </div>-->
-<!--            <div class="student-detail">-->
-<!--                <p class="col-sm-4 col-form-label">Score in (subject name) </p>-->
-<!--                <p  class="col-sm-8 col-form-label">90</p>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-</div>
-</body>
-
 </body>
 </html>
