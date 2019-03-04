@@ -58,6 +58,25 @@
         </div>
     </nav>
 
+    <button onclick="on()" id="btn-add-class" type="button" class="">
+        <span  class="glyphicon glyphicon-plus-sign"></span>
+    </button>
+
+    <div id="overlay"  >
+        <form id="form-overlay" class="container">
+            <div class="form-group row">
+                <label for="exampleFormControlInput1" class="col-sm-6 col-form-label">Subject Code</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control  form-control-lg" id="inputSubjectCode" placeholder="Subject Code">
+                </div>
+            </div>
+            <div>
+                <button onclick="off()" id="button-submit-subject" type="submit" class="btn ">Submit</button>
+            </div>
+
+        </form>
+    </div>
+
     <div id="content-home" class="container-fluid" >
         <div class="col-sm-3 ">
             <div class="showListSubject">
@@ -129,5 +148,14 @@
         </div>
     </div>
 </div>
+<script>
+    function on() {
+        document.getElementById("overlay").style.display = "block";
+    }
+
+    function off() {
+        document.getElementById("overlay").style.display = "none";
+    }
+</script>
 </body>
 </html>
