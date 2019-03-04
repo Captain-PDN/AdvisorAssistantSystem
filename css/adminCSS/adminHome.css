@@ -1,0 +1,91 @@
+html{
+    min-width: 500px;
+    overflow: auto;
+}
+body{
+    font-family: 'PT Sans', sans-serif !important;
+}
+nav{
+    border-radius: 0px !important;
+}
+
+#myNavbar ul li a {
+    color: white;
+
+}
+
+li a.active {
+    background-color: black;
+    color: white;
+    /*text-decoration: none;*/
+}
+
+li a:hover:not(.active) {
+    background-color: gray !important;
+    color: white; !important;
+    text-decoration: none;
+}
+li a:hover.active {
+    background-color: black !important;
+
+}
+.headText{
+    text-align: center;
+    margin-bottom: 35px;
+    font-family: 'Signika Negative', sans-serif;
+}
+.headShowList{
+    margin-top: 30px;
+    font-size: 20px;
+
+}
+.showList{
+    background-color: whitesmoke;
+    /*margin: 2px;*/
+    height: fit-content;
+    border-left: 15px solid white;
+    border-right: 15px solid white ;
+}
+
+#content-home{
+
+    text-align: center;
+    height: 500px;
+    width: 100%;
+    /*border: 1px solid dimgrey;*/
+    border-radius: 0.5em;
+    margin: 0 auto;
+    min-width: 500px;
+    /*background-color: whitesmoke;*/
+}
+
+#content-new-Advisor{
+
+    padding: 10px 30px 30px 30px;
+    /*text-align: center;*/
+    width: 70%;
+    border: 0.5px solid whitesmoke;
+    border-radius: 0.5em;
+    margin: 0 auto;
+    margin-top: 40px;
+    /*margin-top: 20px;*/
+    min-width: 500px;
+    background-color: whitesmoke;
+}
+
+.inner-content-home{
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+}
+
+#button-submit{
+    color: black;
+    font-weight: 700;
+    margin-top: 10px;
+}
+.custom-file-control:before{
+    content: "Browse";
+}
+.custom-file-control:after{
+    content: "Add files..";
+}
