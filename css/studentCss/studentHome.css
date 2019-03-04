@@ -10,8 +10,18 @@ body{
     background-color: whitesmoke;
 }
 #content-home{
-    margin-top: 50px;
+    margin-top: 100px;
 
+}
+#btn-add-class{
+    float: right;
+    margin-right: 30px;
+    border: none;
+    background-color: transparent;
+    margin-bottom: 10px;
+}
+.glyphicon-plus-sign{
+    font-size: 50px !important;
 }
 .advisor-name{
     text-align: left;
@@ -87,6 +97,16 @@ h1{
     margin-bottom: 35px;
     font-family: 'Signika Negative', sans-serif !important;
 }
+#form-overlay{
+    width: 500px;
+    color: white;
+    margin-top: 20%;
+}
+#button-submit-subject{
+    width: max-content;
+    color: black;
+    margin-left: 0;
+}
 #content-score{
     padding: 10px 30px 30px 30px;
     /*text-align: center;*/
@@ -98,6 +118,32 @@ h1{
     min-width: 500px;
     background-color: whitesmoke;
 }
+#overlay {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.9);
+    z-index: 2;
+
+    cursor: pointer;
+}
+
+#text{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 50px;
+    color: white;
+    transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+
+}
+
 @media only screen and (max-width: 767px) {
     .btn{
         width: 60%;
