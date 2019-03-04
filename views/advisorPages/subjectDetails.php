@@ -48,8 +48,8 @@
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
-                    <li><a class="active" href="#home">Home</a></li>
-                    <li><a href="#newSubjectAdvisor">Add New Subject</a></li>
+                    <li><a href="#home">Home</a></li>
+                    <li><a class="active"href="#newSubjectAdvisor">Add New Subject</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="#"><span class="glyphicon glyphicon glyphicon-user"></span> Hello name advisor **edit javascript</a></li>
@@ -60,42 +60,179 @@
     </nav>
 
 
-    <div class="container" >
-        <p class="headText">Subject CODE Subject Name</p>
-        <table class="table" >
-            <thead>
-            <tr >
-                <th>Subject Code</th>
-                <th>Subject Name</th>
-                <th>Edit Button</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>SubjectCode1</td>
-                <td>SubjectName1</td>
-                <td>
-                    <button id="button-submit" type="submit" class="btn ">Edit</button>
-                </td>
-            </tr>
-            <tr>
-                <td>SubjectCode2</td>
-                <td>SubjectName2</td>
-                <td>
-                    <button id="button-submit" type="submit" class="btn ">Edit</button>
-                </td>
-            </tr>
-            <tr>
-                <td>SubjectCode3</td>
-                <td>SubjectName3</td>
-                <td>
-                    <button id="button-submit" type="submit" class="btn ">Edit</button>
-                </td>
-            </tr>
-            </tbody>
-        </table>
+    <div class="container-fluid" >
+        <!--        <h1 style="text-align: center">Add New Advisor</h1>-->
+        <div class="content-details-subject scrollIt" >
+            <h1 class="headText">Subject ID Subject Name</h1>
+            <table class="table" style="text-align: center">
+                <thead>
+                <tr>
+                    <th>Assignment</th>
+                    <th>Max Scores</th>
+                    <th>Score Rate (percent)</th>
+                    <th>Delete </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>HW1</td>
+                    <td contenteditable="true">20</td>
+                    <td contenteditable="true">10</td>
+                    <td>
+                        <button  class="btn btn-danger">Delete</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>HW2</td>
+                    <td contenteditable="true">40</td>
+                    <td contenteditable="true">5</td>
+                    <td>
+                        <button  class="btn btn-danger">Delete</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>HW3</td>
+                    <td contenteditable="true">10</td>
+                    <td contenteditable="true">10</td>
+                    <td>
+                        <button  class="btn btn-danger">Delete</button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="content-details-subject" >
+            <h1 class="headText">Add New Assignment</h1>
+            <form>
+                <div class="form-group row">
+                    <label for="exampleFormControlInput1" class="col-sm-3 col-form-label">Assignment Name</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control form-control-lg" id="inputAssignmentName" placeholder="Assignment Name">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="exampleFormControlInput1" class="col-sm-3 col-form-label">Max Score</label>
+                    <div class="col-sm-9">
+                        <input type="number" min="0" max="100" class="form-control  form-control-lg" id="inputMaxScore<" placeholder="Max Score">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="exampleFormControlInput1" class="col-sm-3 col-form-label">Score Rate (percent)</label>
+                    <div class="col-sm-9">
+                        <input type="number" min="0" max="100" class="form-control  form-control-lg" id="inputScoreRate" placeholder="Score Rate (percent)">
+                    </div>
+                </div>
+
+                <div style="width: fit-content;margin: 0 auto">
+                    <button id="btn-add-Assign" type="submit" class="btn ">Submit</button>
+                </div>
+            </form>
+        </div>
+        <div class="content-details-subject" >
+            <h1 class="headText">Announcement Score</h1>
+            <form>
+                <div class="form-group row">
+
+                    <label for="sel1" class="col-sm-3 col-form-label">Type of Exam</label>
+                    <div class="col-sm-9 form-control-lg"">
+                        <select class="form-control" id="examType">
+                            <option value="1">Mid-term</option>
+                            <option value="2">Final</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="exampleFormControlInput1" class="col-sm-3 col-form-label">Score Announcement Date</label>
+                    <div class="col-sm-9">
+                        <input type="date"  class="form-control  form-control-lg" id="date" placeholder="Max Score">
+                    </div>
+                </div>
+
+                <div style="width: fit-content;margin: 0 auto">
+                    <button id="btn-add-Assign" type="submit" class="btn ">Submit</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="content-details-subject">
+            <h1 class="headText">Announcement Score</h1>
+            <div class="form-group row" style="text-align: center">
+                <div class="col-sm-1"></div>
+                <div class="col-sm-2">
+                    <button id="btn-new-student" name="addNewStudent" type="submit" class="btn btn-manage-score">Add New Student</button>
+                </div>
+                <div class="custom-file col-sm-2">
+                    <input type="file" class="custom-file-input" id="customFile">
+                    <label class="custom-file-label" for="customFile">Add New Student CSV File</label>
+                </div>
+                <div class="custom-file col-sm-2">
+                    <input type="file" class="custom-file-input " id="customFile">
+                    <label class="custom-file-label" for="customFile">Add Score CSV File</label>
+                </div>
+                <div class="col-sm-2">
+                    <button id="btn-export-score" name="exportScore" type="submit" class="btn  btn-manage-score">Export Score</button>
+                </div>
+                <div class="col-sm-2">
+                    <button id="btn-import-grade" name="importGrade" type="submit" class="btn  btn-manage-score">import Grade</button>
+                </div>
+                <div class="col-sm-1"></div>
+            </div>
+        </div>
+
+
+        <div class="content-details-subject scrollIt" >
+            <h1 class="headText">Student</h1>
+            <table class="table" style="text-align: center">
+                <thead>
+                <tr>
+                    <th>Student ID</th>
+                    <th>Student Name</th>
+                    <th>Student Lastname</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>5910256354</td>
+                    <td>Suzy</td>
+                    <td>Dean</td>
+                    <td>
+                        <button  class="btn btn-primary">Edit</button>
+                    </td>
+                    <td>
+                        <button  class="btn btn-danger">Delete</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>5910047698</td>
+                    <td>Thomas</td>
+                    <td>Lee</td>
+                    <td>
+                        <button  class="btn btn-primary">Edit</button>
+                    </td>
+                    <td>
+                        <button  class="btn btn-danger">Delete</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>5910074595</td>
+                    <td>Mia</td>
+                    <td>Jones</td>
+                    <td>
+                        <button  class="btn btn-primary">Edit</button>
+                    </td>
+                    <td>
+                        <button  class="btn btn-danger">Delete</button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+
     </div>
 
-</div>
 </body>
 </html>

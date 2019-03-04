@@ -48,8 +48,8 @@
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
-                    <li><a href="#home">Home</a></li>
-                    <li><a class="active" href="#newSubjectAdvisor">Add New Subject</a></li>
+                    <li><a class="active" href="#home">Home</a></li>
+                    <li><a href="#newSubjectAdvisor">Add New Subject</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="#"><span class="glyphicon glyphicon glyphicon-user"></span> Hello name advisor **edit javascript</a></li>
@@ -59,40 +59,55 @@
         </div>
     </nav>
 
-
-    <div class="container" >
-        <!--        <h1 style="text-align: center">Add New Advisor</h1>-->
-        <div id="content-new-Advisor" >
-            <h1 class="headText">Add New Subject</h1>
+    <div class="container-fluid">
+        <div class="content-details-student" >
+            <h1 class="headText" style="text-align: center">Add New Student</h1>
             <form>
                 <div class="form-group row">
-                    <label for="exampleFormControlInput1" class="col-sm-3 col-form-label">Subject Name</label>
+                    <label for="exampleFormControlInput1" class="col-sm-3 col-form-label">Student Name</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control  form-control-lg" id="inputSubjectNameByAdvisor" placeholder="Subject Name">
+                        <input type="text" class="form-control  form-control-lg" id="inputStudentName" placeholder="Student Name">
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="exampleFormControlInput1" class="col-sm-3 col-form-label">Subject ID</label>
+                    <label for="exampleFormControlInput1" class="col-sm-3 col-form-label">Student Lastname</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control  form-control-lg" id="inputSubjectIDByAdvisor" placeholder="Subject ID">
+                        <input type="text" class="form-control  form-control-lg" id="inputStudentLastname" placeholder="Student Lastname">
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="exampleFormControlInput1" class="col-sm-3 col-form-label">Subject Credit</label>
+                    <label for="exampleFormControlInput1" class="col-sm-3 col-form-label">Student ID</label>
                     <div class="col-sm-9">
-                        <input type="number"  min="1" max="5" class="form-control  form-control-lg" id="inputSubjectCreditByAdvisor" placeholder="Subject Credit">
+                        <input type="text" class="form-control  form-control-lg" id="inputStudentID" placeholder="Student ID">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="exampleFormControlInput1" class="col-sm-3 col-form-label">KU Email address</label>
+                    <div class="col-sm-9">
+                        <input type="email" class="form-control  form-control-lg" id="inputStudentEmail" placeholder="studentEmail@ku.ac.th">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="exampleFormControlInput1" class="col-sm-3 col-form-label">Behavior</label>
+                    <div class="col-sm-9">
+                        <textarea class="form-control" id="behaviorStudent" rows="3"></textarea>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="exampleFormControlInput1" class="col-sm-3 col-form-label">Prerequisite Subject Grade</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control  form-control-lg" id="inputStudentPreGrade" placeholder="Grade">
                     </div>
                 </div>
 
                 <div style="width: fit-content;margin: 0 auto">
                     <button id="button-submit" type="submit" class="btn ">Submit</button>
-
                 </div>
-
-
             </form>
         </div>
-
     </div>
+</div>
+</body>
+
 </body>
 </html>

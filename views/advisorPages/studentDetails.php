@@ -59,43 +59,61 @@
         </div>
     </nav>
 
+    <div class="container-fluid">
+        <div class="content-details-student" >
+            <h1 class="headText" style="text-align: center">Student Details</h1>
+            <div class="row student-detail">
+                <p  class="col-sm-4 ">Student Name</p>
+                <p  class="col-sm-8 ">Student name lastname</p>
+            </div>
+            <div class="row student-detail">
+                <p  class="col-sm-4 ">Student ID</p>
+                <p  class="col-sm-8 ">5910400312</p>
+            </div>
+            <div class="row student-detail">
+                <p  class="col-sm-4 ">Behaviors</p>
+                <p  contenteditable="true" class="col-sm-8 scrollIt-student"></p>
+            </div>
+            <div class="row student-detail">
+                <p  class="col-sm-4 ">Prerequisite Subject Grade</p>
+                <p  class="col-sm-8 ">A</p>
+            </div>
+            <div class="row student-detail">
+                <p  class="col-sm-4 ">Score in (subject name)</p>
+                <p  class="col-sm-8 ">90</p>
+            </div>
 
-    <div class="container content-details-subject" style="text-align: center">
-        <p class="headText">Subject List</p>
-        <table class="table" >
-            <thead>
-            <tr >
-                <th>Subject Code</th>
-                <th>Subject Name</th>
-                <th>Edit Button</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>SubjectCode1</td>
-                <td>SubjectName1</td>
-                <td>
-                    <button id="button-submit" type="submit" class="btn ">Edit</button>
-                </td>
-            </tr>
-            <tr>
-                <td>SubjectCode2</td>
-                <td>SubjectName2</td>
-                <td>
-                    <button id="button-submit" type="submit" class="btn ">Edit</button>
-                </td>
-            </tr>
-            <tr>
-                <td>SubjectCode3</td>
-                <td>SubjectName3</td>
-                <td>
-                    <button id="button-submit" type="submit" class="btn ">Edit</button>
-                </td>
-            </tr>
-            </tbody>
-        </table>
+            <div style="width: fit-content;margin: 0 auto;">
+                <button style="font-weight: 700 !important;" id="btn-add-Student" type="submit" class="btn ">Submit</button>
+            </div>
+
+
+        </div>
     </div>
-
+<!--    <div class="container-fluid" >-->
+<!--        <!--        <h1 style="text-align: center">Add New Advisor</h1>-->-->
+<!--        <div class="content-details-student" >-->
+<!--            <h1 class="headText">Student ID </h1>-->
+<!--            <div class="student-detail">-->
+<!--                <p  class="col-sm-4 ">Student Name</p>-->
+<!--                <p  class="col-sm-8 col-form-label">Student name lastname</p>-->
+<!--            </div>-->
+<!--            <div class="student-detail">-->
+<!--                <p class="col-sm-4 col-form-label">Behaviors</p>-->
+<!--                <p contenteditable="true" class="scrollIt-student col-sm-8 col-form-label"  type="text"></p>-->
+<!--            </div>-->
+<!--            <div class="student-detail">-->
+<!--                <p class="col-sm-4 col-form-label">Prerequisite Subject Grade</p>-->
+<!--                <p  class="col-sm-8 col-form-label">A </p>-->
+<!--            </div>-->
+<!--            <div class="student-detail">-->
+<!--                <p class="col-sm-4 col-form-label">Score in (subject name) </p>-->
+<!--                <p  class="col-sm-8 col-form-label">90</p>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
 </div>
+</body>
+
 </body>
 </html>
