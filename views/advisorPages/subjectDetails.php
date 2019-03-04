@@ -48,8 +48,8 @@
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
-                    <li><a href="#home">Home</a></li>
-                    <li><a class="active" href="#newSubjectAdvisor">Add New Subject</a></li>
+                    <li><a class="active" href="#home">Home</a></li>
+                    <li><a href="#newSubjectAdvisor">Add New Subject</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="#"><span class="glyphicon glyphicon glyphicon-user"></span> Hello name advisor **edit javascript</a></li>
@@ -60,24 +60,42 @@
     </nav>
 
 
-    <div id="content-home" class="container-fluid" >
-        <div class="col-sm-12 ">
-            <div class="showListSubject">
-                <div class="content">
-                    <p>subject code</p>
-                    <p>subject name</p>
-                    <hr>
-                    <div class="bottom-content">
-                        <div class="col-sm-6" >
-                            <p class="advisor-name">advisor name</p>
-                        </div>
-                        <div class="col-sm-6" >
-                            <button type="button" class="btn">Go</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="container" >
+        <p class="headText">Subject CODE Subject Name</p>
+        <table class="table" >
+            <thead>
+            <tr >
+                <th>Subject Code</th>
+                <th>Subject Name</th>
+                <th>Edit Button</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>SubjectCode1</td>
+                <td>SubjectName1</td>
+                <td>
+                    <button id="button-submit" type="submit" class="btn ">Edit</button>
+                </td>
+            </tr>
+            <tr>
+                <td>SubjectCode2</td>
+                <td>SubjectName2</td>
+                <td>
+                    <button id="button-submit" type="submit" class="btn ">Edit</button>
+                </td>
+            </tr>
+            <tr>
+                <td>SubjectCode3</td>
+                <td>SubjectName3</td>
+                <td>
+                    <button id="button-submit" type="submit" class="btn ">Edit</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
     </div>
+
+</div>
 </body>
 </html>
