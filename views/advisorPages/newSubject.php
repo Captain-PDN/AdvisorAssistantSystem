@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,9 +36,9 @@
 
 <body>
     <div>
-        <div style="background: url('../../images/sky-bg.jpg') no-repeat fixed; background-size: cover;">
+        <div  style="background: url('../../images/sky-bg.jpg') no-repeat fixed; background-size: cover;">
             <span align="left">
-                <img src="../../images/KU_SubLogo.png" style="height: 150px; width: 150px;">
+                <img src="../../images/KU_SubLogo.png" style="height: 200px; width: 200px;">
             </span>
         </div>
 
@@ -46,49 +50,81 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand"style="color: white;">CS Advisor Assistant System</a>
+                    <a class="navbar-brand"style="color: white">CS Advisor Assistant System</a>
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
-                        <li><a href="#home">Home</a></li>
-                        <li><a class="active" href="#newSubjectAdvisor">Add New Subject</a></li>
+                        <li><a href="home.php">Home</a></li>
+                        <li><a href="addNewStudent.php">Add New Student</a></li>
+                        <li><a class="active" href="newSubject.php">Add New Subject</a></li>
+                        <li><a href="studentDetails.php">Student Details</a></li>
+                        <li><a href="subjectDetails.php">Subject Details</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#"><span class="glyphicon glyphicon glyphicon-user"></span> Hello Advisor</a></li>
-                        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+                        <li><a href="#"><span class="glyphicon glyphicon glyphicon-user"></span> Hello
+                        <?php
+                            echo $_SESSION["name"];
+                        ?></a></li>
+                        <li><a href="https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue=http://localhost/AdvisorAssistantSystem/views/loginPages/loginStudentAndAdvisor.php"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
 
         <div class="container" >
-            <!--        <h1 style="text-align: center">Add New Advisor</h1>-->
             <div id="content-new-Advisor" >
                 <h1 class="headText">Add New Subject</h1>
-                <form>
+                <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data">
                     <div class="form-group row">
                         <label for="exampleFormControlInput1" class="col-sm-3 col-form-label">Subject Name</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control  form-control-lg" id="inputSubjectNameByAdvisor" placeholder="Subject Name">
+                            <input type="text" name="name" class="form-control form-control-lg" id="inputSubjectNameByAdvisor" placeholder="Subject Name">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="exampleFormControlInput1" class="col-sm-3 col-form-label">Subject ID</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control  form-control-lg" id="inputSubjectIDByAdvisor" placeholder="Subject ID">
+                            <input type="text" name="id" class="form-control form-control-lg" id="inputSubjectIDByAdvisor" placeholder="Subject ID">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="exampleFormControlInput1" class="col-sm-3 col-form-label">Subject Credit</label>
                         <div class="col-sm-9">
-                            <input type="number"  min="1" max="5" class="form-control  form-control-lg" id="inputSubjectCreditByAdvisor" placeholder="Subject Credit">
+                            <input type="number" name="credit" min="1" max="5" class="form-control form-control-lg" id="inputSubjectCreditByAdvisor" placeholder="Subject Credit">
                         </div>
                     </div>
 
                     <div style="width: fit-content; margin: 0 auto;">
-                        <button id="button-submit" type="submit" class="btn ">Submit</button>
+                        <button id="button-submit" type="submit" name="submit" class="btn">Submit</button>
                     </div>
                 </form>
+
+                <?php
+                    require "../../vendor/autoload.php";
+                    use \Core\QueryBuilder;
+
+                    if (isset($_POST["submit"])){
+                        $qb = new QueryBuilder();
+                        if($_POST['name'] != '' && $_POST['id'] != '' && $_POST['credit'] != ''){
+                            if($_POST['credit'] >= 1 && $_POST['credit'] <= 5){
+                                $result = $qb->selectAll('Teacher');
+                                foreach($result as $rs){
+                                    if($_SESSION['email'] == $rs->Email ){
+                                        $id = $rs->ID;
+                                    }
+                                }
+                                $qb->addCourse($_POST['id'], $_POST['name'], $_POST['credit'], $id);
+                                echo "<script type='text/javascript'>alert('Complete add new Subject');</script>";
+                            }
+                            else{
+                                echo "<script type='text/javascript'>alert('ERROR : Credit out of range');</script>";
+                            }
+                        }
+                        else{
+                            echo "<script type='text/javascript'>alert('ERROR : There are empty input');</script>";
+                        }
+                    }
+                ?>
             </div>
         </div>
     </div>
