@@ -79,7 +79,7 @@
                         <label for="exampleFormControlInput1" class="col-sm-3 col-form-label">Student Firstname</label>
                         <div class="col-sm-9">
                             <input type="text" class="form-control form-control-lg" id="inputStudentFirstname"
-                                   placeholder="Student Firstame">
+                                   placeholder="Student Firstname">
                         </div>
                     </div>
                     <div class="form-group row">
@@ -97,7 +97,7 @@
                     <div class="form-group row">
                         <label for="exampleFormControlInput1" class="col-sm-3 col-form-label">KU Email Address</label>
                         <div class="col-sm-9">
-                            <input type="email" class="form-control form-control-lg" id="inputStudentEmail" placeholder="studentEmail@ku.ac.th">
+                            <input type="email" class="form-control form-control-lg" id="inputStudentEmail" placeholder="studentEmail@ku.th">
                         </div>
                     </div>
                     <div class="form-group row">
@@ -114,7 +114,7 @@
                     </div>
 
                     <div style="width: fit-content; margin: 0 auto;">
-                        <button id="button-submit" type="submit" class="btn ">Submit</button>
+                        <button id="button-submit" type="submit" class="btn">Submit</button>
                     </div>
                 </form>
             </div>

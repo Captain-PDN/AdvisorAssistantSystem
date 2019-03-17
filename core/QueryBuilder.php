@@ -60,7 +60,7 @@ class QueryBuilder{
         $query->execute();
     }
 
-    public function adminChangePassword($adminID, $newPasssword){
+    public function adminChangePassword($adminID, $newPasssword, $password){
         $query = $this->pdo->prepare('update admin set Password="'.$password.'" WHERE adminID = "'.$adminID.'"');
         $query->execute();
     }
@@ -96,22 +96,22 @@ class QueryBuilder{
         $query->execute();
     }
 
-    public function recordStudentBehavior($studentID , $behaivorLevel, $behavior, $abnormaly, $recorder){
+    public function recordStudentBehavior($studentID , $behaivorLevel, $behavior, $abnormaly, $recorder, $behaviorLevel){
         $query = $this->pdo->prepare('select StudentID, Recorder from studentBehavior');
         $query->execute();
         $result = $query->fetchAll(\PDO::FETCH_OBJ);
         $found = false;
 
-        foreach($result as $rs){
+        foreach($result as $rs) {
             if ($rs->StudentID == $studentID && $rs->Recorder == $recorder){
                 $found = true;
             }
         }
+
         if($found){
             $query = $this->pdo->prepare('update studentBehavior set BehaviorLevel="'.$behaivorLevel.'", Behavior="'.$behavior.'", Anormaly="'.$abnormaly.'" WHERE studentID = "'.$studentID.'"');
             $query->execute();
-        }
-        else{
+        } else {
             $query = $this->pdo->prepare('insert into `studentBehavior` values ("'.$studentID.'", "'.$behaviorLevel.'", "'.$behavior.'", "'.$abnormaly.'", "'.$recorder.'")');
             $query->execute();
         } 
@@ -128,6 +128,7 @@ class QueryBuilder{
                 $found = true;
             }
         }
+
         if($found){
             $query = $this->pdo->prepare('update studentBehavior set BehaviorLevel="'.$behaivorLevel.'" WHERE studentID = "'.$studentID.'" ');
             $query->execute();
@@ -154,8 +155,6 @@ class QueryBuilder{
     }
 
     public function addStudentsToCourse($courseID, $studentID){
-
-
         $query = $this->pdo->prepare('insert into `Course` values ("'.$courseID.'", "'.$studentID.'")');
         $query->execute();
     }

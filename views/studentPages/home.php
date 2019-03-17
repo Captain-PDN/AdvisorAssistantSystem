@@ -68,7 +68,7 @@
             <span  class="glyphicon glyphicon-plus-sign"></span>
         </button>
 
-        <div id="overlay"  >
+        <div id="overlay">
             <form id="form-overlay" class="container">
                 <div class="form-group row">
                     <label for="exampleFormControlInput1" class="col-sm-6 col-form-label">Subject Code</label>
@@ -83,77 +83,65 @@
             </form>
         </div>
 
-        <div id="content-home" class="container-fluid" >
-            <div class="col-sm-3 ">
-                <div class="showListSubject">
-                    <div class="content">
-                        <p>Subject Code</p>
-                        <p>Subject Name</p>
-                        <hr>
-                        <div class="bottom-content">
-                            <div class="col-sm-6" >
-                                <p class="advisor-name">Advisor Name</p>
-                            </div>
-                            <div class="col-sm-6" >
-                                <button type="button" class="btn">Go</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-3 ">
-                <div class="showListSubject">
-                    <div class="content">
-                        <p>Subject Code</p>
-                        <p>Subject Name</p>
-                        <hr>
-                        <div class="bottom-content">
-                            <div class="col-sm-6" >
-                                <p class="advisor-name">Advisor Name</p>
-                            </div>
-                            <div class="col-sm-6" >
-                                <button type="button" class="btn">Go</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div id="content-home" class="container-fluid">
+            <?php
+                require "../../vendor/autoload.php";
+                use \Core\QueryBuilder;
 
-            <div class="col-sm-3 ">
-                <div class="showListSubject">
-                    <div class="content">
-                        <p>Subject Code</p>
-                        <p>Subject Name</p>
-                        <hr>
-                        <div class="bottom-content">
-                            <div class="col-sm-6" >
-                                <p class="advisor-name">Advisor Name</p>
-                            </div>
-                            <div class="col-sm-6">
-                                <button type="button" class="btn">Go</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                $qb = new QueryBuilder();
+                $person = $qb->selectAll("Student");
+                $result = $qb->selectAll("TakeCourse");
+                $subject = $qb->selectAll("TeachCourse");
+                $info = $qb->selectAll("CourseInfo");
+                $teacher = $qb->selectAll("Teacher");
 
-            <div class="col-sm-3 ">
-                <div class="showListSubject">
-                    <div class="content">
-                        <p>Subject Code</p>
-                        <p>Subject Name</p>
-                        <hr>
-                        <div class="bottom-content">
-                            <div class="col-sm-6" >
-                                <p class="advisor-name">Advisor Name</p>
-                            </div>
-                            <div class="col-sm-6">
-                                <button type="button" class="btn">Go</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                foreach ($person as $student) {
+                    if ($student->Email == $_SESSION['email']) {
+                        $id = $student->ID;
+                        foreach ($result as $rs) {
+                            if ($rs->StudentID == $id) {
+                                $courseID = $rs->CourseID;
+                                ?>
+                                <div class="col-sm-3 ">
+                                    <div class="showListSubject">
+                                        <div class="content">
+                                            <p><?= $rs->CourseID; ?></p>
+                                            <?php foreach ($info as $name) {
+                                                if ($name->CourseID == $courseID) {
+                                                    ?>
+                                                    <p><?= $name->Name; ?></p>
+                                                    <?php
+                                                }
+                                            } ?>
+                                            <hr>
+                                            <div class="bottom-content">
+                                                <div class="col-sm-8">
+                                                    <?php foreach ($subject as $s) {
+                                                        if ($s->CourseID == $courseID) {
+                                                            $teacherID = $s->TeacherID;
+                                                            foreach ($teacher as $adv) {
+                                                                if ($adv->ID == $teacherID) {
+                                                                    ?>
+                                                                    <p class="advisor-name"><?= $adv->Name." ".$adv->Lastname ?></>
+                                                                    <?php
+                                                                }
+                                                            }
+                                                        }
+                                                    } ?>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <button type="button" class="btn">Go</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <?php
+                            }
+                        }
+                    }
+                }
+            ?>
         </div>
     </div>
 

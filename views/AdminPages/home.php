@@ -77,20 +77,20 @@
                 <div class="col-md-4 headShowList">
                     <p>ADVISOR</p>
                     <div class="showList" align="left"
-                         style="height: 400px; margin-bottom: 10px; overflow:scroll; font-size: 16px;">
+                         style="height: 400px; margin-bottom: 10px; overflow: scroll; font-size: 16px;">
                         <?php
                             $qb = new QueryBuilder();
                             $result = $qb->selectAll("Teacher");
                         ?>
                         <?php foreach($result as $rs): ?>
-                            <p ><?= $rs->Name." ".$rs->Lastname; ?></p>
+                            <p><?= $rs->Name." ".$rs->Lastname; ?></p>
                         <?php endforeach; ?>
                     </div>
                 </div>
                 <div class="col-md-4 headShowList">
                     <p>STUDENT</p>
                     <div class="showList" align="left"
-                         style="height: 400px; margin-bottom: 10px; overflow:scroll; font-size: 16px;">
+                         style="height: 400px; margin-bottom: 10px; overflow: scroll; font-size: 16px;">
                         <?php
                             $qb = new QueryBuilder();
                             $result = $qb->selectAll("Student");
@@ -103,7 +103,7 @@
                 <div class="col-md-4 headShowList">
                     <p>SUBJECT</p>
                     <div class="showList" align="left"
-                         style="height: 400px; margin-bottom: 10px; overflow:scroll; font-size: 16px;">
+                         style="height: 400px; margin-bottom: 10px; overflow: scroll; font-size: 16px;">
                         <?php
                             $qb = new QueryBuilder();
                             $result = $qb->selectAll("CourseInfo");
