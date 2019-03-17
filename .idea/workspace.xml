@@ -2,38 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f8817689-f636-4608-b81f-fed17e4f50c8" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/adminCSS/adminHome.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/adminCSS/adminHome.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/advisorCSS/advisorCSS.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/advisorCSS/advisorCSS.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/bootstrap-4.3.1-dist/css/bootstrap-grid.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/bootstrap-4.3.1-dist/css/bootstrap-grid.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/bootstrap-4.3.1-dist/css/bootstrap-grid.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/bootstrap-4.3.1-dist/css/bootstrap-grid.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/bootstrap-4.3.1-dist/css/bootstrap-reboot.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/bootstrap-4.3.1-dist/css/bootstrap-reboot.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/bootstrap-4.3.1-dist/css/bootstrap-reboot.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/bootstrap-4.3.1-dist/css/bootstrap-reboot.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/bootstrap-4.3.1-dist/css/bootstrap.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/bootstrap-4.3.1-dist/css/bootstrap.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/bootstrap-4.3.1-dist/css/bootstrap.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/bootstrap-4.3.1-dist/css/bootstrap.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/bootstrap-4.3.1-dist/js/bootstrap.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/css/bootstrap-4.3.1-dist/js/bootstrap.bundle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/bootstrap-4.3.1-dist/js/bootstrap.bundle.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/css/bootstrap-4.3.1-dist/js/bootstrap.bundle.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/bootstrap-4.3.1-dist/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/css/bootstrap-4.3.1-dist/js/bootstrap.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/bootstrap-4.3.1-dist/js/bootstrap.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/css/bootstrap-4.3.1-dist/js/bootstrap.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/loginCss/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/loginCss/login.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/studentCss/studentHome.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/studentCss/studentHome.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/AdminPages/home.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/AdminPages/home.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/AdminPages/newAdvisor.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/AdminPages/newAdvisor.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/AdminPages/newStudent.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/AdminPages/newStudent.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/AdminPages/newSubject.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/AdminPages/newSubject.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/QueryBuilder.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/QueryBuilder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/advisorPages/addNewStudent.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/advisorPages/addNewStudent.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/advisorPages/home.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/advisorPages/home.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/advisorPages/newSubject.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/advisorPages/newSubject.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/advisorPages/studentDetails.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/advisorPages/studentDetails.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/advisorPages/subjectDetails.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/advisorPages/subjectDetails.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/loginPages/loginAdmin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/loginPages/loginAdmin.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/loginPages/loginAdmin.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/loginPages/loginStudentAndAdvisor.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/loginPages/loginStudentAndAdvisor.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/loginPages/preLogin.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/loginPages/preLogin.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/loginPages/signUpAdmin.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/loginPages/signUpAdmin.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/studentPages/home.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/studentPages/home.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/studentPages/scoresPages.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/studentPages/scoresPages.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -44,37 +22,61 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/advisorPages/subjectDetails.php">
+        <entry file="file://$PROJECT_DIR$/views/advisorPages/home.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="185" column="56" selection-start-line="185" selection-start-column="24" selection-end-line="185" selection-end-column="56" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/adminPages/newSubject.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-106">
-              <caret line="98" selection-start-line="98" selection-start-column="4" selection-end-line="104" selection-end-column="61" />
+            <state relative-caret-position="481">
+              <caret line="99" column="40" lean-forward="true" selection-start-line="99" selection-start-column="20" selection-end-line="99" selection-end-column="40" />
               <folding>
-                <element signature="n#style#0;n#div#4;n#form#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/views/adminPages/home.php">
+        <entry file="file://$PROJECT_DIR$/views/studentPages/home.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1887">
-              <caret line="111" column="63" selection-start-line="111" selection-start-column="35" selection-end-line="111" selection-end-column="63" />
+            <state relative-caret-position="718">
+              <caret line="131" column="68" selection-start-line="131" selection-start-column="68" selection-end-line="131" selection-end-column="68" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/advisorPages/addNewStudent.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-216">
+              <caret line="81" column="67" lean-forward="true" selection-start-line="81" selection-start-column="67" selection-end-line="81" selection-end-column="67" />
               <folding>
-                <element signature="n#style#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#2;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#h1#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/advisorPages/studentDetails.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="589">
+              <caret line="97" column="28" lean-forward="true" selection-start-line="97" selection-start-column="28" selection-end-line="97" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/loginPages/loginStudentAndAdvisor.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="376">
+              <caret line="55" column="32" lean-forward="true" selection-start-line="55" selection-start-column="32" selection-end-line="55" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/QueryBuilder.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-333">
+              <caret line="109" lean-forward="true" selection-start-line="109" selection-end-line="109" />
             </state>
           </provider>
         </entry>
@@ -111,30 +113,30 @@
         <option value="$PROJECT_DIR$/views/AdminPages/home.php" />
         <option value="$PROJECT_DIR$/css/advisorCSS/advisorCSS.css" />
         <option value="$PROJECT_DIR$/views/loginPages/check.php" />
-        <option value="$PROJECT_DIR$/views/loginPages/loginAdmin.php" />
         <option value="$PROJECT_DIR$/StudentsList.csv" />
-        <option value="$PROJECT_DIR$/views/loginPages/signUpAdmin.php" />
         <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/views/loginPages/preLogin.php" />
-        <option value="$PROJECT_DIR$/views/adminPages/newAdvisor.php" />
-        <option value="$PROJECT_DIR$/views/loginPages/loginStudentAndAdvisor.php" />
-        <option value="$PROJECT_DIR$/views/studentPages/home.php" />
-        <option value="$PROJECT_DIR$/views/advisorPages/home.php" />
         <option value="$PROJECT_DIR$/views/studentPages/scoresPages.php" />
-        <option value="$PROJECT_DIR$/views/advisorPages/newSubject.php" />
-        <option value="$PROJECT_DIR$/core/QueryBuilder.php" />
-        <option value="$PROJECT_DIR$/views/advisorPages/addNewStudent.php" />
         <option value="$PROJECT_DIR$/views/advisorPages/studentDetails.php" />
         <option value="$PROJECT_DIR$/views/advisorPages/subjectDetails.php" />
+        <option value="$PROJECT_DIR$/core/QueryBuilder.php" />
         <option value="$PROJECT_DIR$/views/adminPages/home.php" />
-        <option value="$PROJECT_DIR$/views/adminPages/newStudent.php" />
+        <option value="$PROJECT_DIR$/views/adminPages/newAdvisor.php" />
         <option value="$PROJECT_DIR$/views/adminPages/newSubject.php" />
+        <option value="$PROJECT_DIR$/views/adminPages/newStudent.php" />
+        <option value="$PROJECT_DIR$/views/loginPages/preLogin.php" />
+        <option value="$PROJECT_DIR$/views/loginPages/loginStudentAndAdvisor.php" />
+        <option value="$PROJECT_DIR$/views/loginPages/loginAdmin.php" />
+        <option value="$PROJECT_DIR$/views/loginPages/signUpAdmin.php" />
+        <option value="$PROJECT_DIR$/views/advisorPages/home.php" />
+        <option value="$PROJECT_DIR$/views/advisorPages/newSubject.php" />
+        <option value="$PROJECT_DIR$/views/advisorPages/addNewStudent.php" />
+        <option value="$PROJECT_DIR$/views/studentPages/home.php" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="378" />
-    <option name="y" value="30" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="228" />
+    <option name="y" value="54" />
     <option name="width" value="976" />
     <option name="height" value="696" />
   </component>
@@ -228,18 +230,18 @@
       <updated>1551458034478</updated>
       <workItem from="1551458036067" duration="9382000" />
       <workItem from="1551470114892" duration="10787000" />
-      <workItem from="1552726659700" duration="25382000" />
+      <workItem from="1552726659700" duration="34802000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="66789000" />
+    <option name="totallyTimeSpent" value="76209000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="200" y="21" width="976" height="696" extended-state="0" />
+    <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23034935" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15960665" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="TypeScript" order="0" />
@@ -343,13 +345,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/loginPages/signUpAdmin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -367,14 +362,70 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/views/studentPages/scoresPages.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="58" column="217" selection-start-line="58" selection-start-column="217" selection-end-line="58" selection-end-column="217" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/Connection.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/advisorPages/subjectDetails.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="185" column="56" selection-start-line="185" selection-start-column="24" selection-end-line="185" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/adminPages/newSubject.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="206">
+          <caret line="75" column="41" lean-forward="true" selection-start-line="75" selection-start-column="41" selection-end-line="75" selection-end-column="41" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#4;n#form#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/adminPages/newAdvisor.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="72" column="59" selection-start-line="72" selection-start-column="31" selection-end-line="72" selection-end-column="59" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/adminPages/newStudent.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="687">
+          <caret line="69" column="18" lean-forward="true" selection-start-line="69" selection-start-column="18" selection-end-line="69" selection-end-column="18" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/loginPages/signUpAdmin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" column="56" selection-start-line="24" selection-start-column="56" selection-end-line="24" selection-end-column="56" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/views/loginPages/preLogin.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
-          <caret line="35" column="77" selection-start-line="35" selection-start-column="77" selection-end-line="35" selection-end-column="77" />
+        <state relative-caret-position="184">
+          <caret line="24" column="56" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="56" />
           <folding>
-            <element signature="n#style#0;n#a#0;n#button#0;n#form#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#1;n#form#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#button#1;n#form#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -386,123 +437,76 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/loginPages/loginStudentAndAdvisor.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="467">
-          <caret line="62" column="9" lean-forward="true" selection-start-line="62" selection-start-column="9" selection-end-line="62" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/loginPages/loginAdmin.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-391">
-          <caret line="15" column="17" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/studentPages/home.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="60" column="217" selection-start-line="60" selection-start-column="134" selection-end-line="60" selection-end-column="217" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/studentPages/scoresPages.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="58" column="217" selection-start-line="58" selection-start-column="217" selection-end-line="58" selection-end-column="217" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/Connection.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/advisorPages/newSubject.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-615">
-          <caret line="67" column="217" selection-start-line="67" selection-start-column="217" selection-end-line="67" selection-end-column="217" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/advisorPages/addNewStudent.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-119">
-          <caret line="78" column="108" selection-start-line="78" selection-start-column="108" selection-end-line="78" selection-end-column="108" />
+        <state relative-caret-position="221">
+          <caret line="27" column="56" selection-start-line="27" selection-start-column="56" selection-end-line="27" selection-end-column="56" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/QueryBuilder.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1910">
-          <caret line="63" column="70" selection-start-line="63" selection-start-column="70" selection-end-line="63" selection-end-column="70" />
+        <state relative-caret-position="-333">
+          <caret line="109" lean-forward="true" selection-start-line="109" selection-end-line="109" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/advisorPages/home.php">
+    <entry file="file://$PROJECT_DIR$/views/adminPages/home.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-343">
-          <caret line="67" column="191" selection-start-line="67" selection-start-column="191" selection-end-line="67" selection-end-column="191" />
+        <state relative-caret-position="83">
+          <caret line="79" column="67" selection-start-line="79" selection-start-column="47" selection-end-line="79" selection-end-column="67" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/advisorPages/subjectDetails.php">
+    <entry file="file://$PROJECT_DIR$/views/loginPages/loginStudentAndAdvisor.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="185" column="56" selection-start-line="185" selection-start-column="24" selection-end-line="185" selection-end-column="56" />
+        <state relative-caret-position="376">
+          <caret line="55" column="32" lean-forward="true" selection-start-line="55" selection-start-column="32" selection-end-line="55" selection-end-column="32" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/adminPages/newStudent.php">
+    <entry file="file://$PROJECT_DIR$/views/advisorPages/newSubject.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1078">
-          <caret line="110" column="24" selection-start-line="110" selection-start-column="24" selection-end-line="110" selection-end-column="24" />
+        <state relative-caret-position="-1131">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
           <folding>
-            <element signature="n#style#0;n#h3#0;n#form#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#5;n#form#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#span#0;n#div#5;n#form#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#5;n#form#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#0;n#div#5;n#form#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#form#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/advisorPages/addNewStudent.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-216">
+          <caret line="81" column="67" lean-forward="true" selection-start-line="81" selection-start-column="67" selection-end-line="81" selection-end-column="67" />
+          <folding>
+            <element signature="n#style#0;n#h1#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/advisorPages/studentDetails.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1649">
+        <state relative-caret-position="589">
           <caret line="97" column="28" lean-forward="true" selection-start-line="97" selection-start-column="28" selection-end-line="97" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/advisorPages/home.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="481">
+          <caret line="99" column="40" lean-forward="true" selection-start-line="99" selection-start-column="20" selection-end-line="99" selection-end-column="40" />
           <folding>
-            <element signature="n#style#0;n#div#5;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/adminPages/newAdvisor.php">
+    <entry file="file://$PROJECT_DIR$/views/studentPages/home.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1530">
-          <caret line="90" column="104" selection-start-line="90" selection-start-column="104" selection-end-line="90" selection-end-column="104" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/adminPages/newSubject.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-106">
-          <caret line="98" selection-start-line="98" selection-start-column="4" selection-end-line="104" selection-end-column="61" />
-          <folding>
-            <element signature="n#style#0;n#div#4;n#form#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/adminPages/home.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1887">
-          <caret line="111" column="63" selection-start-line="111" selection-start-column="35" selection-end-line="111" selection-end-column="63" />
-          <folding>
-            <element signature="n#style#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#2;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="718">
+          <caret line="131" column="68" selection-start-line="131" selection-start-column="68" selection-end-line="131" selection-end-column="68" />
         </state>
       </provider>
     </entry>

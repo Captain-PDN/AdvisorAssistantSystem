@@ -36,7 +36,7 @@
 
 <body>
     <div>
-        <div  style="background: url('../../images/sky-bg.jpg') no-repeat fixed; background-size: cover;">
+        <div style="background: url('../../images/sky-bg.jpg') no-repeat fixed; background-size: cover;">
             <span align="left">
                 <img src="../../images/KU_SubLogo.png" style="height: 200px; width: 200px;">
             </span>
@@ -50,7 +50,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand"style="color: white">CS Advisor Assistant System</a>
+                    <a class="navbar-brand" style="color: white">CS Advisor Assistant System</a>
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
@@ -72,7 +72,7 @@
         </nav>
 
         <div class="container" >
-            <div id="content-new-Advisor" >
+            <div id="content-new-Advisor">
                 <h1 class="headText">Add New Subject</h1>
                 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data">
                     <div class="form-group row">
@@ -109,19 +109,19 @@
                             if($_POST['credit'] >= 1 && $_POST['credit'] <= 5){
                                 $result = $qb->selectAll('Teacher');
                                 foreach($result as $rs){
-                                    if($_SESSION['email'] == $rs->Email ){
+                                    if($_SESSION['email'] == $rs->Email){
                                         $id = $rs->ID;
                                     }
                                 }
                                 $qb->addCourse($_POST['id'], $_POST['name'], $_POST['credit'], $id);
-                                echo "<script type='text/javascript'>alert('Complete add new Subject');</script>";
+                                echo "<script type='text/javascript'>alert('Complete Add New Subject');</script>";
                             }
                             else{
-                                echo "<script type='text/javascript'>alert('ERROR : Credit out of range');</script>";
+                                echo "<script type='text/javascript'>alert('ERROR : Credit - Out of Range');</script>";
                             }
                         }
                         else{
-                            echo "<script type='text/javascript'>alert('ERROR : There are empty input');</script>";
+                            echo "<script type='text/javascript'>alert('ERROR : There are Empty Input');</script>";
                         }
                     }
                 ?>

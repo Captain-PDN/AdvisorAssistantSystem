@@ -70,7 +70,7 @@
             </div>
         </nav>
 
-        <div class="container">
+        <div class="container" style="margin-bottom: 10px;">
             <div id="content-new-Advisor">
                 <h1 class="headText">Add New Advisor</h1>
                 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data">

@@ -32,7 +32,7 @@
 </head>
 
 <body id="body-background">
-    <div class="center-div">
+    <div class="center-div" style="margin-bottom: 10px;">
         <div id="div-image" class="col-lg-6 col-md-6">
             <img id="ku-logo" src="../../images/KU_SubLogo.png">
         </div>

@@ -61,6 +61,9 @@
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="#"><span class="glyphicon glyphicon glyphicon-user"></span> Hello <?php
+                            require "../../vendor/autoload.php";
+                            use \Core\QueryBuilder;
+
                             echo $_SESSION["adminName"];
                         ?></a></li>
                         <li><a href="../loginPages/loginAdmin.php"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
@@ -69,8 +72,8 @@
             </div>
         </nav>
 
-        <div class="container" >
-            <div id="content-new-Advisor" >
+        <div class="container" style="margin-bottom: 10px;">
+            <div id="content-new-Advisor">
                 <h1 class="headText">Add New Subject</h1>
                 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data">
                     <div class="form-group row">
@@ -94,15 +97,15 @@
                     <div class="form-group row">
                         <label for="exampleFormControlInput1" class="col-sm-3 col-form-label">Advisor</label>
                         <div class="col-sm-9">
-                            <select type="text" name="advisor" class="form-control form-control-lg" id="inputAdvisorName" placeholder="Advisor ID">
+                            <select type="text" name="advisor" class="form-control form-control-lg" id="inputAdvisorName">
                                 <option value="">----Select Advisor----</option>
-<!--                                --><?php
-//                                    $qb = new QueryBuilder();
-//                                    $result = $qb->selectAll("Teacher");
-//                                ?>
-<!--                                --><?php //foreach($result as $rs): ?>
-<!--                                    <option value="--><?php //echo $rs->ID;?><!--">--><?php //echo $rs->Name." ".$rs->Lastname; ?><!--</option>-->
-<!--                                --><?php //endforeach; ?>
+                                <?php
+                                    $qb = new QueryBuilder();
+                                    $result = $qb->selectAll("Teacher");
+                                ?>
+                                <?php foreach($result as $rs): ?>
+                                    <option value='<?= $rs->ID; ?>'><?= $rs->Name.' '.$rs->Lastname; ?></option>
+                                <?php endforeach; ?>
                             </select>
                         </div>
                     </div>
@@ -113,9 +116,6 @@
                 </form>
 
                 <?php
-                    require "../../vendor/autoload.php";
-                    use \Core\QueryBuilder;
-
                     if (isset($_POST["submit"])){
                         $qb = new QueryBuilder();
 
