@@ -29,15 +29,24 @@
 
         <div id="div-form" class="col-lg-6 col-md-6">
             <div class="center-form">
-                <form>
+                <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data">
                     <p id="head-text-login">LOGIN</p>
-                    <button type="submit" class="btn"><a href="../loginPages/loginAdmin.php" style="color: white;">as Administrator</a></button>
+                    <button type="submit" class="btn" name="admin">as Administrator</button>
                     <p style="font-size: 20px; margin-top: 20px;">OR</p>
-                    <button type="submit" class="btn"><a href="../loginPages/loginStudentAndAdvisor.php" style="color: white;">as Advisor / Student</a></button>
+                    <button type="submit" class="btn" name="stdAndAvs">as Advisor / Student</button>
                 </form>
             </div>
         </div>
     </div>
+
+    <?php
+        if (isset($_POST["admin"])){
+            header('location:loginAdmin.php');
+        }
+        else if (isset($_POST["stdAndAvs"])){
+            header('location:loginStudentAndAdvisor.php');
+        }
+    ?>
 </body>
 </html>
 

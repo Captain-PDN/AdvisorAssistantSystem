@@ -26,7 +26,13 @@
     }
 
     if(!$access){
-        echo "<script type='text/javascript'>alert('ERROR : This Account not in System');</script>";
-        // header('location:https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue=http://localhost/MidtermProject/view/login/loginStudentAndAdvisor.php');
+        echo "<script type='text/javascript'>
+        var r = confirm('ERROR : This Account not in System');
+        if (r == true) {
+            location.href = 'https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue=http://localhost/AdvisorAssistantSystem/views/loginPages/loginStudentAndAdvisor.php';
+        } else {
+            location.href = 'https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue=http://localhost/AdvisorAssistantSystem/views/loginPages/loginStudentAndAdvisor.php';
+        }
+        </script>";
     }
 ?>

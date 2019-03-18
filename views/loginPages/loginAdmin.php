@@ -42,6 +42,7 @@
                     </div>
 
                     <button type="submit" name="submit" class="btn ">SIGN IN</button>
+                    
                     <a href="signUpAdmin.php" id="sign-up">SIGN UP</a>
                     <a href="preLogin.php" id="back">BACK</a>
                 </form>

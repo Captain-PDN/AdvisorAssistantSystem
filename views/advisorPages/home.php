@@ -94,7 +94,7 @@
                         <td><?= $rs->CourseID; ?></td>
                         <td><?= $rs->Name; ?></td>
                         <td>
-                            <button id="button-submit" type="submit" class="btn" onClick="click()">Edit</button>
+                            <button id="button-submit" type="submit" class="btn" onclick="edit(this)" value='<?= $rs->CourseID; ?>'>Edit</button>
                         </td>
                     </tr>
                     <?php endforeach; ?>
@@ -104,12 +104,11 @@
     </div>
 
     <script>
-        function click(){
-            <?php
-                $_SESSION["courseID"] = $rs->CourseID;
-                $_SESSION["courseName"] = $rs->Name;
-            ?>
-            location.href = 'subjectDetails.php';
+        function edit(element){
+            var courseID = element.value;
+            $.post('../globalVariable.php', {'postCourseID': courseID}).done(function (data) {
+                location.href = 'subjectDetails.php';
+            });
         }
     </script>
 </body>

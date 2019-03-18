@@ -74,6 +74,19 @@
 
             <div class="container-fluid">
                 <div class="content-details-subject scrollIt">
+                    <?php
+                        require "../../vendor/autoload.php";
+                        use \Core\QueryBuilder;
+
+                        $qb = new QueryBuilder();
+                        $result = $qb->selectAll("CourseInfo");
+                        foreach($result as $rs){
+                            if($rs->CourseID == $_SESSION["courseID"]){
+                                $_SESSION["courseName"] = $rs->Name;
+                            }
+                        }
+                    ?>
+
                     <h1 class="headText"><?php echo $_SESSION["courseID"]."  ".$_SESSION["courseName"]?></h1>
                     <table class="table" style="text-align: center;">
                         <thead>
@@ -86,10 +99,6 @@
                         </thead>
                         <tbody>
                         <?php
-                            require "../../vendor/autoload.php";
-                            use \Core\QueryBuilder;
-
-                            $qb = new QueryBuilder();
                             $result = $qb->selectAll("CourseTopic")
                         ?>
                         <?php foreach($result as $rs):?>
@@ -109,7 +118,7 @@
 
             <div class="content-details-subject">
                 <h1 class="headText">Add New Assignment</h1>
-                <form>
+                <form  method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data">
                     <div class="form-group row">
                         <label for="exampleFormControlInput1" class="col-sm-3 col-form-label">Assignment Name</label>
                         <div class="col-sm-9">
@@ -134,29 +143,57 @@
                     </div>
                 </form>
             </div>
+            <?php
+                if(isset($_POST["submit"])){
+                    if(!$_POST["topic"] == '' && !$_POST["max"] == '' && !$_POST["weigh"] == ''){
+                        $qb->addCourseTopic($_SESSION["courseID"], $_POST["topic"], $_POST["weigh"], $_POST["max"]);
+                        echo "<script type='text/javascript'>alert('Complete Add New Assignment');</script>";
+                    }
+                    else{
+                        echo "<script type='text/javascript'>alert('ERROR : There are Empty Input');</script>";
+                    }
+                }
+            ?>
 
             <div class="content-details-subject" >
                 <h1 class="headText">Announcement Score</h1>
-                <form>
+                <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data">
                     <div class="form-group row">
-                        <label for="sel1" class="col-sm-3 col-form-label">Type of Exam</label>
-                        <div class="col-sm-9 form-control-lg"">
-                        <select class="form-control" id="examType">
-                            <option value="1">Midterm</option>
-                            <option value="2">Final</option>
+                        <label for="sel1" class="col-sm-3 col-form-label">Assignment Topic</label>
+                        <div class="col-sm-9 form-control-lg">
+                        <select class="form-control" id="topicName">
+                        <?php
+                            $result = $qb->selectAll("CourseTopic WHERE CourseID=".$_SESSION["courseID"])
+                        ?>
+                        <?php foreach($result as $rs):?>
+                        <option><?= $rs->Topic; ?></option>
+                        <?php endforeach; ?>
+                            
                         </select></div>
                     </div>
                     <div class="form-group row">
                         <label for="exampleFormControlInput1" class="col-sm-3 col-form-label">Score Announcement Date</label>
                         <div class="col-sm-9">
-                            <input type="date"  class="form-control  form-control-lg" id="date" placeholder="Max Score">
+                            <input type="date"  class="form-control  form-control-lg" id="date" placeholder="Max Score" name="date">
                         </div>
                     </div>
 
                     <div style="width: fit-content;margin: 0 auto">
-                        <button id="btn-add-Assign" type="submit" class="btn ">Submit</button>
+                        <button id="assignAnnounc" type="submit" name="submit2" class="btn " onclick="announc()">Submit</button>
                     </div>
+                </form>
             </div>
+            <?php
+                if(isset($_POST["submit2"])){
+                    if(!$_SESSION["courseID"] == "" && !$_SESSION["topic"] == ""){
+                        $qb->setTopicAnnounceDate($_SESSION["courseID"], $_SESSION["topic"], $_POST["date"]);
+                        echo "<script type='text/javascript'>alert('Complete Add Assignment Topic Announcement Date');</script>";
+                    }
+                    else{
+                        echo "<script type='text/javascript'>alert('ERROR : There are Empty Input');</script>";
+                    }
+                }
+            ?>
 
             <div class="content-details-subject">
                 <h1 class="headText">Announcement Score</h1>
@@ -218,5 +255,11 @@
             </div>
         </div>
     </div>
+    <script>
+        function announc(){
+            var topic = document.getElementById("topicName").value;
+            $.post('../globalVariable.php', {'postTopic': topic});
+        }
+    </script>
 </body>
 </html>
