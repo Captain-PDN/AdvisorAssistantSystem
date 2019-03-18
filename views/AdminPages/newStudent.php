@@ -150,6 +150,9 @@
                                 unlink(basename($_FILES["fileToUpload"]["name"]));
 
                                 echo "<script type='text/javascript'>alert('Complete Add New Student');</script>";
+                                ?>
+                                    <script type="text/javascript">window.location = "home.php";</script>
+                                <?php
                             } else {
                                 echo "<script type='text/javascript'>alert('ERROR : Invalid Input');</script>";
                             }
@@ -157,6 +160,9 @@
                             if (strpos($_POST["email"], '@ku.th') !== false) {
                                 $qb->addStudents($_POST['id'], $_POST['email'], $_POST['name'], $_POST['lastName']);
                                 echo "<script type='text/javascript'>alert('Complete Add New Student');</script>";
+                                ?>
+                                    <script type="text/javascript">window.location = "home.php";</script>
+                                <?php
                             } else {
                                 echo "<script type='text/javascript'>alert('ERROR : Wrong Email');</script>";
                             }
