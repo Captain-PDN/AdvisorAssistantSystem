@@ -123,6 +123,9 @@
                             if($_POST['credit'] >= 1 && $_POST['credit'] <= 5){
                                 $qb->addCourse($_POST['id'], $_POST['name'], $_POST['credit'], $_POST['advisor']);
                                 echo "<script type='text/javascript'>alert('Complete Add New Subject');</script>";
+                                ?>
+                                    <script type="text/javascript">window.location = "home.php";</script>
+                                <?php
                             }
                             else{
                                 echo "<script type='text/javascript'>alert('ERROR : Credit - Out of Range');</script>";

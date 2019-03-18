@@ -78,39 +78,80 @@
                     <p>ADVISOR</p>
                     <div class="showList" align="left"
                          style="height: 400px; margin-bottom: 10px; overflow: scroll; font-size: 16px;">
-                        <?php
-                            $qb = new QueryBuilder();
-                            $result = $qb->selectAll("Teacher");
-                        ?>
-                        <?php foreach($result as $rs): ?>
-                            <p><?= $rs->Name." ".$rs->Lastname; ?></p>
-                        <?php endforeach; ?>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th style="text-align: center;">Firstname</th>
+                                    <th style="text-align: center;">Lastname</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                    $qb = new QueryBuilder();
+                                    $result = $qb->selectAll("Teacher");
+                                ?>
+                                <?php foreach($result as $rs): ?>
+                                    <tr>
+                                        <th><?= $rs->Name; ?></th>
+                                        <th><?= $rs->Lastname; ?></th>
+                                    </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
                 <div class="col-md-4 headShowList">
                     <p>STUDENT</p>
                     <div class="showList" align="left"
                          style="height: 400px; margin-bottom: 10px; overflow: scroll; font-size: 16px;">
-                        <?php
-                            $qb = new QueryBuilder();
-                            $result = $qb->selectAll("Student");
-                        ?>
-                        <?php foreach($result as $rs): ?>
-                            <p><?= $rs->ID." ".$rs->Name." ".$rs->Lastname; ?></p>
-                        <?php endforeach; ?>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th style="text-align: center;">ID</th>
+                                    <th style="text-align: center;">Firstname</th>
+                                    <th style="text-align: center;">Lastname</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                    $qb = new QueryBuilder();
+                                    $result = $qb->selectAll("Student");
+                                ?>
+                                <?php foreach($result as $rs): ?>
+                                    <tr>
+                                        <th><?= $rs->ID; ?></th>
+                                        <th><?= $rs->Name; ?></th>
+                                        <th><?= $rs->Lastname; ?></th>
+                                    </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
                 <div class="col-md-4 headShowList">
                     <p>SUBJECT</p>
                     <div class="showList" align="left"
                          style="height: 400px; margin-bottom: 10px; overflow: scroll; font-size: 16px;">
-                        <?php
-                            $qb = new QueryBuilder();
-                            $result = $qb->selectAll("CourseInfo");
-                        ?>
-                        <?php foreach($result as $rs): ?>
-                            <p><?= $rs->CourseID." ".$rs->Name; ?></p>
-                        <?php endforeach; ?>
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th style="text-align: center;">ID</th>
+                                <th style="text-align: center;">Subject Name</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                    $qb = new QueryBuilder();
+                                    $result = $qb->selectAll("CourseInfo");
+                                ?>
+                                <?php foreach($result as $rs): ?>
+                                    <tr>
+                                        <th><?= $rs->CourseID; ?></th>
+                                        <th><?= $rs->Name; ?></th>
+                                    <tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
            </div>

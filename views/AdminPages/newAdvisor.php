@@ -109,6 +109,9 @@
                             if(strpos($_POST["email"], '@ku.th') !== false){
                                 $qb->adminAddTeacher($_POST['email'], $_POST['firstName'], $_POST['lastName']);
                                 echo "<script type='text/javascript'>alert('Complete Add New Advisor');</script>";
+                                ?>
+                                    <script type="text/javascript">window.location = "home.php";</script>
+                                <?php
                             }
                             else{
                                 echo "<script type='text/javascript'>alert('ERROR : Wrong Email');</script>";
