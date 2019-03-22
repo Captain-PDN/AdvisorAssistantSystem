@@ -11,10 +11,10 @@
 
     <title>CS Advisor Assistant System</title>
 
-    <!--	<link rel="stylesheet" type="text/css" href="bulma-0.7.4/css/bulma.min.css">-->
     <link rel="stylesheet" href="../../css/adminCSS/adminHome.css" >
     <link href="https://fonts.googleapis.com/css?family=K2D" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
@@ -38,7 +38,7 @@
     <div>
         <div style="background: url('../../images/sky-bg.jpg') no-repeat fixed; background-size: cover;">
             <span align="left">
-                <img src="../../images/KU_SubLogo.png" style="height: 200px; width: 200px;">
+                <img src="../../images/KU_SubLogo.png" style="height: 150px; width: 150px;">
             </span>
         </div>
 
@@ -55,9 +55,10 @@
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
                         <li><a href="home.php">Home</a></li>
-                        <li><a href="newAdvisor.php">Add New Advisor</a></li>
-                        <li><a href="newStudent.php">Add New Student</a></li>
-                        <li><a class="active" href="newSubject.php">Add New Subject</a></li>
+                        <li><a href="newAdvisor.php">+New Advisor</a></li>
+                        <li><a href="newStudent.php">+New Student</a></li>
+                        <li><a class="active" href="newSubject.php">+New Subject</a></li>
+                        <li><a href="changePassword.php">Change Password</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="#"><span class="glyphicon glyphicon glyphicon-user"></span> Hello <?php
@@ -122,14 +123,14 @@
                         if($_POST['name'] != '' && $_POST['id'] != '' && $_POST['credit'] != ''&& $_POST['advisor'] != ''){
                             if($_POST['credit'] >= 1 && $_POST['credit'] <= 5){
                                 $qb->addCourse($_POST['id'], $_POST['name'], $_POST['credit'], $_POST['advisor']);
-                                echo "<script type='text/javascript'>alert('Complete Add New Subject');</script>";
+                                echo "<script type='text/javascript'>alert('Add new subject complete!'); window.location.href = 'home.php';</script>";
                             }
                             else{
-                                echo "<script type='text/javascript'>alert('ERROR : Credit - Out of Range');</script>";
+                                echo "<script type='text/javascript'>alert('ERROR : Credit out of range!');</script>";
                             }
                         }
                         else{
-                            echo "<script type='text/javascript'>alert('ERROR : There are Empty Input');</script>";
+                            echo "<script type='text/javascript'>alert('ERROR : There are empty input!');</script>";
                         }
                     }
                 ?>

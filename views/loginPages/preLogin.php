@@ -22,12 +22,12 @@
 </head>
 
 <body id="body-background">
-    <div class="center-div" style="margin-bottom: 10px;">
+    <div class="center-div" style="margin-top: 5%;">
         <div id="div-image" class="col-lg-6 col-md-6">
             <img id="ku-logo" src="../../images/KU_SubLogo.png">
         </div>
 
-        <div id="div-form" class="col-lg-6 col-md-6">
+        <div id="div-form" class="col-lg-6 col-md-6" style="margin-top: 40px;">
             <div class="center-form">
                 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data">
                     <p id="head-text-login">LOGIN</p>
@@ -40,10 +40,10 @@
     </div>
 
     <?php
-        if (isset($_POST["admin"])){
+        if (isset($_POST["admin"])) {
             header('location:loginAdmin.php');
         }
-        else if (isset($_POST["stdAndAvs"])){
+        else if (isset($_POST["stdAndAvs"])) {
             header('location:loginStudentAndAdvisor.php');
         }
     ?>

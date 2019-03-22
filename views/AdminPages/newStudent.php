@@ -11,7 +11,6 @@
 
     <title>CS Advisor Assistant System</title>
 
-    <!--	<link rel="stylesheet" type="text/css" href="bulma-0.7.4/css/bulma.min.css">-->
     <link rel="stylesheet" href="../../css/adminCSS/adminHome.css" >
     <link href="https://fonts.googleapis.com/css?family=K2D" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -39,7 +38,7 @@
     <div>
         <div  style="background: url('../../images/sky-bg.jpg') no-repeat fixed;background-size: cover;" >
             <span align="left">
-                <img src="../../images/KU_SubLogo.png" style="height: 200px;width: 200px">
+                <img src="../../images/KU_SubLogo.png" style="height: 150px; width: 150px">
             </span>
         </div>
 
@@ -56,9 +55,10 @@
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
                         <li><a href="home.php">Home</a></li>
-                        <li><a href="newAdvisor.php">Add New Advisor</a></li>
-                        <li><a class="active"  href="newStudent.php">Add New Student</a></li>
-                        <li><a href="newSubject.php">Add New Subject</a></li>
+                        <li><a href="newAdvisor.php">+New Advisor</a></li>
+                        <li><a class="active"  href="newStudent.php">+New Student</a></li>
+                        <li><a href="newSubject.php">+New Subject</a></li>
+                        <li><a href="changePassword.php">Change Password</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="#"><span class="glyphicon glyphicon glyphicon-user"></span> Hello <?php
@@ -149,19 +149,19 @@
                                 fclose($myfile);
                                 unlink(basename($_FILES["fileToUpload"]["name"]));
 
-                                echo "<script type='text/javascript'>alert('Complete Add New Student');</script>";
+                                echo "<script type='text/javascript'>alert('Add new student(s) complete!'); window.location.href = 'home.php';</script>";
                             } else {
-                                echo "<script type='text/javascript'>alert('ERROR : Invalid Input');</script>";
+                                echo "<script type='text/javascript'>alert('ERROR : Invalid input!');</script>";
                             }
                         } else if ($_POST['name'] != '' && $_POST['lastName'] != '' && $_POST['id'] != '' && $_POST['email'] != '') {
                             if (strpos($_POST["email"], '@ku.th') !== false) {
                                 $qb->addStudents($_POST['id'], $_POST['email'], $_POST['name'], $_POST['lastName']);
-                                echo "<script type='text/javascript'>alert('Complete Add New Student');</script>";
+                                echo "<script type='text/javascript'>alert('Add new student(s) complete!'); window.location.href = 'home.php';</script>";
                             } else {
-                                echo "<script type='text/javascript'>alert('ERROR : Wrong Email');</script>";
+                                echo "<script type='text/javascript'>alert('ERROR : Wrong e-mail!');</script>";
                             }
                         } else {
-                            echo "<script type='text/javascript'>alert('ERROR : There are Empty Input');</script>";
+                            echo "<script type='text/javascript'>alert('ERROR : There are empty input!');</script>";
                         }
                     }
                 ?>

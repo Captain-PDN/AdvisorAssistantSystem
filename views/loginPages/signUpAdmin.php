@@ -22,12 +22,12 @@
 </head>
 
 <body id="body-background">
-    <div class="center-div" style="margin-bottom: 10px;">
+    <div class="center-div" style="margin-top: 5%;">
         <div id="div-image" class="col-lg-6 col-md-6">
             <img id="ku-logo" src="../../images/KU_SubLogo.png">
         </div>
 
-        <div id="div-form" class="col-lg-6 col-md-6">
+        <div id="div-form" class="col-lg-6 col-md-6" style="margin-top: -20px;">
             <div class="sign-up-center-form">
                 <p id="head-text-login">SIGN UP</p>
                 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data">
@@ -41,30 +41,31 @@
                         <input type="password" name="password" id="adminInputPassword1" placeholder= "Password">
                     </div>
                     <div class="form-group">
-                        <input type="password" name="confirm_password" id="adminInputPassword1" placeholder= "Confirm Password">
+                        <input type="password" name="confirm_password" id="adminInputPassword1" placeholder="Confirm Password">
                     </div>
 
                     <button type="submit" name="submit" class="btn ">SUBMIT</button>
-                    <a href="loginAdmin.php" id="sign-in">SIGN IN</a>
                 </form>
+
+                <br><br><button onclick="location.href = 'loginAdmin.php';" class="btn " style="width: 100%;">BACK</button>
 
                 <?php
                     require "../../vendor/autoload.php";
                     use \Core\QueryBuilder;
 
-                    if (isset($_POST["submit"])){
-                        if($_POST['username'] != '' && $_POST['password'] != '' && $_POST['name'] != '' && $_POST['confirm_password'] != ''){
-                            if($_POST["password"] == $_POST["confirm_password"]){
+                    if (isset($_POST["submit"])) {
+                        if($_POST['username'] != '' && $_POST['password'] != '' && $_POST['name'] != '' && $_POST['confirm_password'] != '') {
+                            if($_POST["password"] == $_POST["confirm_password"]) {
                                 $qb = new QueryBuilder();
                                 $qb->registerAdmin($_POST['username'], $_POST['password'], $_POST['name']);
-                                echo "<script type='text/javascript'>alert('Complete sign up');</script>";
+                                echo "<script type='text/javascript'>alert('Sign up complete!'); window.location.href = 'loginAdmin.php';</script>";
                             }
                             else{
                                 echo "<script type='text/javascript'>alert('ERROR : Password not MATCH!');</script>";
                             }
                         }
                         else{
-                            echo "<script type='text/javascript'>alert('ERROR : There are Empty Input');</script>";
+                            echo "<script type='text/javascript'>alert('ERROR : There are empty input!');</script>";
                         }
                     }
                 ?>

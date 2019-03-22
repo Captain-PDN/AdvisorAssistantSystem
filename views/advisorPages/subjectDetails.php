@@ -37,7 +37,7 @@
 <body>
     <div>
         <div>
-            <div  style="background: url('../../images/sky-bg.jpg') no-repeat fixed; background-size: cover;">
+            <div style="background: url('../../images/sky-bg.jpg') no-repeat fixed; background-size: cover;">
                 <span align="left">
                     <img src="../../images/KU_SubLogo.png" style="height: 200px; width: 200px;">
                 </span>
@@ -255,6 +255,7 @@
             </div>
         </div>
     </div>
+
     <script>
         function announc(){
             var topic = document.getElementById("topicName").value;
