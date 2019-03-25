@@ -1,5 +1,10 @@
 <?php
-    session_start();
+    if (!isset($_SESSION)) {
+        session_start();
+    } else {
+        session_destroy();
+        session_start();
+    }
 ?>
 
 <!doctype html>
@@ -18,19 +23,20 @@
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+          integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <title>Login</title>
     <link href="https://fonts.googleapis.com/css?family=Signika+Negative:700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700i" rel="stylesheet">
 </head>
 
 <body id="body-background">
-    <div class="center-div" style="margin-bottom: 10px;">
+    <div class="center-div" style="margin-top: 5%;">
         <div id="div-image" class="col-lg-6 col-md-6">
             <img id="ku-logo" src="../../images/KU_SubLogo.png">
         </div>
 
-        <div id="div-form" class="col-lg-6 col-md-6">
+        <div id="div-form" class="col-lg-6 col-md-6" style="margin-top: -20px;">
             <div class="center-form">
                 <p id="head-text-login">LOGIN</p>
                 <form  method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data">
@@ -42,9 +48,13 @@
                     </div>
 
                     <button type="submit" name="submit" class="btn ">SIGN IN</button>
-                    
-                    <a href="signUpAdmin.php" id="sign-up">SIGN UP</a>
-                    <a href="preLogin.php" id="back">BACK</a>
+
+                    <br><br><h4 style="font-family: 'PT Sans', sans-serif">New User? Please Sign-Up</h4>
+                    <button onclick="location.href = 'signUpAdmin.php';" type="button" name="submit" class="btn "
+                            style="width: 100px;">SIGN UP</button>
+
+                    <button onclick="location.href = 'preLogin.php';" type="button" name="submit" class="btn "
+                            style="width: 100px;">BACK</button>
                 </form>
 
                 <?php
@@ -58,10 +68,10 @@
                             header('location:../adminPages/home.php');
                         }
                         if($_POST['username'] == '' || $_POST['password'] == ''){
-                            echo "<script type='text/javascript'>alert('ERROR : There are Empty Input');</script>";
+                            echo "<script type='text/javascript'>alert('ERROR : There are empty input!');</script>";
                         }
                         else{
-                            echo "<script type='text/javascript'>alert('ERROR : Wrong Email or Password');</script>";
+                            echo "<script type='text/javascript'>alert('ERROR : Wrong username or password!');</script>";
                         }
                     }
                 ?>

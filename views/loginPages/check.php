@@ -8,8 +8,8 @@
     $access = false;
 
     $result = $qb->selectAll("Teacher");
-    foreach($result as $rs){
-        if($rs->Email == $_SESSION['email']){
+    foreach ($result as $rs) {
+        if ($rs->Email == $_SESSION['email']) {
             $_SESSION['name'] = $rs->Name;
             $access = true;
             header('location:../advisorPages/home.php');
@@ -17,15 +17,15 @@
     }
 
     $result = $qb->selectAll("Student");
-    foreach($result as $rs){
-        if($rs->Email == $_SESSION['email']){
+    foreach ($result as $rs) {
+        if ($rs->Email == $_SESSION['email']) {
             $_SESSION['name'] = $rs->Name;
             $access = true;
             header('location:../studentPages/home.php');
         }
     }
 
-    if(!$access){
+    if (!$access) {
         echo "<script type='text/javascript'>
         var r = confirm('ERROR : This Account not in System');
         if (r == true) {

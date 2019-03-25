@@ -1,3 +1,12 @@
+<?php
+    if (!isset($_SESSION)) {
+        session_start();
+    } else {
+        session_destroy();
+        session_start();
+    }
+?>
+
 <!doctype html>
 <html>
 <head>
@@ -15,19 +24,20 @@
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+          integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <title>Login</title>
     <link href="https://fonts.googleapis.com/css?family=Signika+Negative:700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700i" rel="stylesheet">
 </head>
 
 <body id="body-background">
-    <div class="center-div" style="margin-bottom: 10px;">
+    <div class="center-div" style="margin-top: 5%;">
         <div id="div-image" class="col-lg-6 col-md-6">
             <img id="ku-logo" src="../../images/KU_SubLogo.png">
         </div>
 
-        <div id="div-form" class="col-lg-6 col-md-6">
+        <div id="div-form" class="col-lg-6 col-md-6" style="margin-top: 40px;">
             <div class="center-form">
                 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data">
                     <p id="head-text-login">LOGIN</p>
@@ -40,10 +50,10 @@
     </div>
 
     <?php
-        if (isset($_POST["admin"])){
+        if (isset($_POST["admin"])) {
             header('location:loginAdmin.php');
         }
-        else if (isset($_POST["stdAndAvs"])){
+        else if (isset($_POST["stdAndAvs"])) {
             header('location:loginStudentAndAdvisor.php');
         }
     ?>

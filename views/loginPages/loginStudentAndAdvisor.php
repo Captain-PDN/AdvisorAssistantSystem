@@ -1,5 +1,10 @@
 <?php
-    session_start();
+    if (!isset($_SESSION)) {
+        session_start();
+    } else {
+        session_destroy();
+        session_start();
+    }
 ?>
 
 <!doctype html>
@@ -25,41 +30,71 @@
     <!-- google sign in script -->
     <script src="https://apis.google.com/js/platform.js" async defer></script>
 
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+          integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <title>Login</title>
     <link href="https://fonts.googleapis.com/css?family=Signika+Negative:700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700i" rel="stylesheet">
+
+    <style>
+        #my-signin2 {
+            width: 100%;
+        }
+
+        #my-signin2 > div {
+            margin: 0 auto;
+        }
+    </style>
 </head>
 
 <body id="body-background">
-    <div class="center-div" style="margin-bottom: 10px;">
+    <div class="center-div" style="margin-top: 5%;">
         <div id="div-image" class="col-lg-6 col-md-6">
             <img id="ku-logo" src="../../images/KU_SubLogo.png">
         </div>
 
-        <div id="div-form" class="col-lg-6 col-md-6">
+        <div id="div-form" class="col-lg-6 col-md-6" style="margin-top: -20px;">
             <div class="center-form form-login-student-advisor">
                 <p id="head-text-login">LOGIN</p>
                 <form>
                     <div class="form-group">
-                        <div type="submit" class="btn g-signin2" data-onsuccess="onSignIn"><img id="logo-google" src="../../images/Google-G-Logo.png">Login With GOOGLE</div>
+                        <div type="submit" id="my-signin2"></div>
+                        <script>
+                            function onSuccess(googleUser) {
+                                var profile = googleUser.getBasicProfile();
+                                var email = profile.getEmail();
+                                var name = profile.getName();
+
+                                $.post('../globalVariable.php', {'postemail': email, 'postname': name}).done(function (data) {
+                                    location.href = 'check.php';
+                                });
+                            }
+
+                            function onFailure(error) {
+                                console.log(error);
+                            }
+
+                            function renderButton() {
+                                gapi.signin2.render('my-signin2', {
+                                    'scope': 'profile email',
+                                    'width': 240,
+                                    'height': 50,
+                                    'longtitle': true,
+                                    'theme': 'dark',
+                                    'onsuccess': onSuccess,
+                                    'onfailure': onFailure
+                                });
+                            }
+                        </script>
+
+                        <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+                        <br>
                     </div>
-                    <a href="preLogin.php" id="back">BACK</a>
+
+                    <br><br>
+                    <button onclick="location.href = 'preLogin.php';" type="button" style="min-width: 50%;">BACK</button>
                 </form>
             </div>
         </div>
     </div>
-
-    <script language="javascript">
-    // function for login
-        function onSignIn(googleUser) {
-            var profile = googleUser.getBasicProfile();
-            var email = profile.getEmail();
-            var name = profile.getName();
-
-            $.post('../globalVariable.php', {'postemail': email, 'postname': name}).done(function (data) {
-                location.href = 'check.php';
-            });
-        }
-    </script>
 </body>

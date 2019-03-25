@@ -11,10 +11,10 @@
 
     <title>CS Advisor Assistant System</title>
 
-    <!--	<link rel="stylesheet" type="text/css" href="bulma-0.7.4/css/bulma.min.css">-->
     <link rel="stylesheet" href="../../css/adminCSS/adminHome.css" >
     <link href="https://fonts.googleapis.com/css?family=K2D" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
@@ -38,7 +38,7 @@
     <div>
         <div style="background: url('../../images/sky-bg.jpg') no-repeat fixed; background-size: cover;">
             <span align="left">
-                <img src="../../images/KU_SubLogo.png" style="height: 200px; width: 200px;">
+                <img src="../../images/KU_SubLogo.png" style="height: 150px; width: 150px;">
             </span>
         </div>
 
@@ -55,9 +55,10 @@
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
                         <li><a href="home.php">Home</a></li>
-                        <li><a href="newAdvisor.php">Add New Advisor</a></li>
-                        <li><a href="newStudent.php">Add New Student</a></li>
-                        <li><a class="active" href="newSubject.php">Add New Subject</a></li>
+                        <li><a href="newAdvisor.php">+New Advisor</a></li>
+                        <li><a href="newStudent.php">+New Student</a></li>
+                        <li><a class="active" href="newSubject.php">+New Subject</a></li>
+                        <li><a href="changePassword.php">Change Password</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="#"><span class="glyphicon glyphicon glyphicon-user"></span> Hello <?php
@@ -79,19 +80,22 @@
                     <div class="form-group row">
                         <label for="exampleFormControlInput1" class="col-sm-3 col-form-label">Subject Name</label>
                         <div class="col-sm-9">
-                            <input type="text" name="name" class="form-control form-control-lg" id="inputSubjectName" placeholder="Subject Name">
+                            <input type="text" name="name" class="form-control form-control-lg" id="inputSubjectName"
+                                   placeholder="Subject Name">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="exampleFormControlInput1" class="col-sm-3 col-form-label">Subject ID</label>
                         <div class="col-sm-9">
-                            <input type="text" name="id" class="form-control form-control-lg" id="inputStudentID" placeholder="Subject ID">
+                            <input type="text" name="id" class="form-control form-control-lg" id="inputStudentID"
+                                   placeholder="Subject ID">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="exampleFormControlInput1" class="col-sm-3 col-form-label">Subject Credit</label>
                         <div class="col-sm-9">
-                            <input type="number" name="credit" min="1" max="5" class="form-control form-control-lg" id="inputSubjectCredit" placeholder="Subject Credit">
+                            <input type="number" name="credit" min="1" max="5" class="form-control form-control-lg"
+                                   id="inputSubjectCredit" placeholder="Subject Credit">
                         </div>
                     </div>
                     <div class="form-group row">
@@ -110,26 +114,24 @@
                         </div>
                     </div>
 
-                    <div style="width: fit-content; margin: 0 auto;">
+                    <div style="width: fit-content; margin: 0 auto; text-align: center;">
                         <button id="button-submit" type="submit" name="submit" class="btn">Submit</button>
                     </div>
                 </form>
 
                 <?php
-                    if (isset($_POST["submit"])){
+                    if (isset($_POST["submit"])) {
                         $qb = new QueryBuilder();
 
-                        if($_POST['name'] != '' && $_POST['id'] != '' && $_POST['credit'] != ''&& $_POST['advisor'] != ''){
-                            if($_POST['credit'] >= 1 && $_POST['credit'] <= 5){
+                        if ($_POST['name'] != '' && $_POST['id'] != '' && $_POST['credit'] != '' && $_POST['advisor'] != '') {
+                            if ($_POST['credit'] >= 1 && $_POST['credit'] <= 5) {
                                 $qb->addCourse($_POST['id'], $_POST['name'], $_POST['credit'], $_POST['advisor']);
-                                echo "<script type='text/javascript'>alert('Complete Add New Subject');</script>";
+                                echo "<script type='text/javascript'>alert('Add New Subject Complete!'); window.location.href = 'home.php';</script>";
+                            } else {
+                                echo "<script type='text/javascript'>alert('ERROR : Credit is Out of Range!');</script>";
                             }
-                            else{
-                                echo "<script type='text/javascript'>alert('ERROR : Credit - Out of Range');</script>";
-                            }
-                        }
-                        else{
-                            echo "<script type='text/javascript'>alert('ERROR : There are Empty Input');</script>";
+                        } else {
+                            echo "<script type='text/javascript'>alert('ERROR : There are Empty Input!');</script>";
                         }
                     }
                 ?>

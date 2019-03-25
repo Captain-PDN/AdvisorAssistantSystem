@@ -11,7 +11,6 @@
 
     <title>CS Advisor Assistant System</title>
 
-    <!--	<link rel="stylesheet" type="text/css" href="bulma-0.7.4/css/bulma.min.css">-->
     <link rel="stylesheet" href="../../css/adminCSS/adminHome.css" >
     <link href="https://fonts.googleapis.com/css?family=K2D" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -39,7 +38,7 @@
     <div>
         <div  style="background: url('../../images/sky-bg.jpg') no-repeat fixed;background-size: cover;" >
             <span align="left">
-                <img src="../../images/KU_SubLogo.png" style="height: 200px;width: 200px">
+                <img src="../../images/KU_SubLogo.png" style="height: 150px; width: 150px">
             </span>
         </div>
 
@@ -56,10 +55,12 @@
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
                         <li><a href="home.php">Home</a></li>
-                        <li><a href="newAdvisor.php">Add New Advisor</a></li>
-                        <li><a class="active"  href="newStudent.php">Add New Student</a></li>
-                        <li><a href="newSubject.php">Add New Subject</a></li>
+                        <li><a href="newAdvisor.php">+New Advisor</a></li>
+                        <li><a class="active"  href="newStudent.php">+New Student</a></li>
+                        <li><a href="newSubject.php">+New Subject</a></li>
+                        <li><a href="changePassword.php">Change Password</a></li>
                     </ul>
+
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="#"><span class="glyphicon glyphicon glyphicon-user"></span> Hello <?php
                             echo $_SESSION["adminName"];
@@ -73,6 +74,7 @@
         <div class="container" style="margin-bottom: 10px;">
             <div id="content-new-Advisor">
                 <h1 class="headText">Add New Student</h1>
+
                 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data">
                     <div class="form-group row">
                         <label for="exampleFormControlInput1" class="col-sm-3 col-form-label">Student Firstname</label>
@@ -81,25 +83,33 @@
                                    placeholder="Student Firstname">
                         </div>
                     </div>
+
                     <div class="form-group row">
                         <label for="exampleFormControlInput1" class="col-sm-3 col-form-label">Student Lastname</label>
                         <div class="col-sm-9">
-                            <input type="text" name="lastName" class="form-control form-control-lg" id="inputStudentLastname" placeholder="Student Lastname">
+                            <input type="text" name="lastName" class="form-control form-control-lg" id="inputStudentLastname"
+                                   placeholder="Student Lastname">
                         </div>
                     </div>
+
                     <div class="form-group row">
                         <label for="exampleFormControlInput1" class="col-sm-3 col-form-label">Student ID</label>
                         <div class="col-sm-9">
-                            <input type="text" name="id" class="form-control form-control-lg" id="inputStudentID" placeholder="Student ID">
+                            <input type="text" name="id" class="form-control form-control-lg" id="inputStudentID"
+                                   placeholder="Student ID">
                         </div>
                     </div>
+
                     <div class="form-group row">
                         <label for="exampleFormControlInput1" class="col-sm-3 col-form-label">KU Email Address</label>
                         <div class="col-sm-9">
-                            <input type="email" name="email" class="form-control form-control-lg" id="inputStudentEmail" placeholder="studentEmail@ku.th">
+                            <input type="email" name="email" class="form-control form-control-lg" id="inputStudentEmail"
+                                   placeholder="studentEmail@ku.th">
                         </div>
                     </div>
+
                     <h3 class="headText" style="margin-bottom: 10px; margin-top: 35px;">OR</h3>
+
                     <div class="input-group" style="max-width: 350px; margin: 0 auto;">
                         <span class="input-group-btn">
                             <span class="btn btn-primary" onclick="$(this).parent().find('input[type=file]').click();">Import CSV File</span>
@@ -108,9 +118,12 @@
                         </span>
                         <span class="form-control"></span>
                     </div>
+
                     <br>
+
                     <p align="middle">Note: If you have selected CSV file. It will insert data in CSV file only.</p>
-                    <div style="width: fit-content; margin: 0 auto;">
+
+                    <div style="width: fit-content; margin: 0 auto; text-align: center;">
                         <button id="button-submit" type="submit" name="submit" class="btn" style="margin-top: 15px;">Submit</button>
                     </div>
                 </form>
@@ -149,19 +162,19 @@
                                 fclose($myfile);
                                 unlink(basename($_FILES["fileToUpload"]["name"]));
 
-                                echo "<script type='text/javascript'>alert('Complete Add New Student');</script>";
+                                echo "<script type='text/javascript'>alert('Add New Student(s) Complete!'); window.location.href = 'home.php';</script>";
                             } else {
-                                echo "<script type='text/javascript'>alert('ERROR : Invalid Input');</script>";
+                                echo "<script type='text/javascript'>alert('ERROR : Invalid Input!');</script>";
                             }
                         } else if ($_POST['name'] != '' && $_POST['lastName'] != '' && $_POST['id'] != '' && $_POST['email'] != '') {
                             if (strpos($_POST["email"], '@ku.th') !== false) {
                                 $qb->addStudents($_POST['id'], $_POST['email'], $_POST['name'], $_POST['lastName']);
-                                echo "<script type='text/javascript'>alert('Complete Add New Student');</script>";
+                                echo "<script type='text/javascript'>alert('Add New Student(s) Complete!'); window.location.href = 'home.php';</script>";
                             } else {
-                                echo "<script type='text/javascript'>alert('ERROR : Wrong Email');</script>";
+                                echo "<script type='text/javascript'>alert('ERROR : Wrong E-mail!');</script>";
                             }
                         } else {
-                            echo "<script type='text/javascript'>alert('ERROR : There are Empty Input');</script>";
+                            echo "<script type='text/javascript'>alert('ERROR : There are Empty Input!');</script>";
                         }
                     }
                 ?>
