@@ -54,14 +54,6 @@ CREATE TABLE IF NOT EXISTS `courseinfo` (
   PRIMARY KEY (`CourseID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Dumping data for table databaseall.courseinfo: ~3 rows (approximately)
-/*!40000 ALTER TABLE `courseinfo` DISABLE KEYS */;
-INSERT INTO `courseinfo` (`CourseID`, `Name`, `Credit`) VALUES
-	('01418114', 'Introduction to Computer Science', 4),
-	('01418390', 'Cooperative Education Preparation', 1),
-	('01418497', 'Seminar', 1);
-/*!40000 ALTER TABLE `courseinfo` ENABLE KEYS */;
-
 -- Dumping structure for table databaseall.coursescore
 CREATE TABLE IF NOT EXISTS `coursescore` (
   `CourseID` char(8) NOT NULL DEFAULT '',
@@ -116,15 +108,6 @@ CREATE TABLE IF NOT EXISTS `student` (
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Dumping data for table databaseall.student: ~4 rows (approximately)
-/*!40000 ALTER TABLE `student` DISABLE KEYS */;
-INSERT INTO `student` (`ID`, `Email`, `Name`, `Lastname`) VALUES
-	('5910400213', 'arisa.k@ku.th', 'Arisa', 'Khwanon'),
-	('5910400312', 'witsuta.o@ku.th', 'Witsuta', 'Onampai'),
-	('5910401149', 'ratchanon.bua@ku.th', 'Ratchanon', 'Bualeesonsakun'),
-	('5910406191', 'nalinee.phu@ku.th', 'Nalinee', 'Phuangkhiaw');
-/*!40000 ALTER TABLE `student` ENABLE KEYS */;
-
 -- Dumping structure for table databaseall.studentbehavior
 CREATE TABLE IF NOT EXISTS `studentbehavior` (
   `StudentID` char(10) NOT NULL DEFAULT '',
@@ -134,14 +117,6 @@ CREATE TABLE IF NOT EXISTS `studentbehavior` (
   KEY `StudentID` (`StudentID`),
   CONSTRAINT `studentbehavior_ibfk_1` FOREIGN KEY (`StudentID`) REFERENCES `student` (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- Dumping data for table databaseall.studentbehavior: ~3 rows (approximately)
-/*!40000 ALTER TABLE `studentbehavior` DISABLE KEYS */;
-INSERT INTO `studentbehavior` (`StudentID`, `BehaviorLevel`, `Behavior`, `Recorder`) VALUES
-	('5910401149', 'Very Good', 'OK', 'Faltzner'),
-	('5910400213', 'Good', 'OK', 'Faltzner'),
-	('5910406191', 'Normal', 'Best', 'Faltzner');
-/*!40000 ALTER TABLE `studentbehavior` ENABLE KEYS */;
 
 -- Dumping structure for table databaseall.takecourse
 CREATE TABLE IF NOT EXISTS `takecourse` (
@@ -153,15 +128,6 @@ CREATE TABLE IF NOT EXISTS `takecourse` (
   CONSTRAINT `takecourse_ibfk_2` FOREIGN KEY (`StudentID`) REFERENCES `student` (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Dumping data for table databaseall.takecourse: ~4 rows (approximately)
-/*!40000 ALTER TABLE `takecourse` DISABLE KEYS */;
-INSERT INTO `takecourse` (`CourseID`, `StudentID`) VALUES
-	('01418390', '5910400213'),
-	('01418390', '5910400312'),
-	('01418390', '5910401149'),
-	('01418390', '5910406191');
-/*!40000 ALTER TABLE `takecourse` ENABLE KEYS */;
-
 -- Dumping structure for table databaseall.teachcourse
 CREATE TABLE IF NOT EXISTS `teachcourse` (
   `CourseID` char(8) NOT NULL DEFAULT '',
@@ -171,14 +137,6 @@ CREATE TABLE IF NOT EXISTS `teachcourse` (
   CONSTRAINT `teachcourse_ibfk_1` FOREIGN KEY (`CourseID`) REFERENCES `courseinfo` (`CourseID`),
   CONSTRAINT `teachcourse_ibfk_2` FOREIGN KEY (`TeacherID`) REFERENCES `teacher` (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- Dumping data for table databaseall.teachcourse: ~3 rows (approximately)
-/*!40000 ALTER TABLE `teachcourse` DISABLE KEYS */;
-INSERT INTO `teachcourse` (`CourseID`, `TeacherID`) VALUES
-	('01418390', 'D1499'),
-	('01418497', 'D1499'),
-	('01418114', 'D1499');
-/*!40000 ALTER TABLE `teachcourse` ENABLE KEYS */;
 
 -- Dumping structure for table databaseall.teacher
 CREATE TABLE IF NOT EXISTS `teacher` (

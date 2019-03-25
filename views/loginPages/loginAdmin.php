@@ -8,6 +8,7 @@
 ?>
 
 <!doctype html>
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -48,14 +49,9 @@
                     </div>
 
                     <button type="submit" name="submit" class="btn ">SIGN IN</button>
-
-                    <br><br><h4 style="font-family: 'PT Sans', sans-serif">New User? Please Sign-Up</h4>
-                    <button onclick="location.href = 'signUpAdmin.php';" type="button" name="submit" class="btn "
-                            style="width: 100px;">SIGN UP</button>
-
-                    <button onclick="location.href = 'preLogin.php';" type="button" name="submit" class="btn "
-                            style="width: 100px;">BACK</button>
                 </form>
+
+                <br><br><button onclick="location.href = 'preLogin.php';" type="button" name="submit" class="btn " style="width: 100%;">BACK</button>
 
                 <?php
                     require "../../vendor/autoload.php";
@@ -64,14 +60,12 @@
                     if (isset($_POST["submit"])){
                         $qb = new QueryBuilder();
                         
-                        if($qb->login($_POST['username'], $_POST['password'])){
+                        if ($qb->login($_POST['username'], $_POST['password'])) {
                             header('location:../adminPages/home.php');
-                        }
-                        if($_POST['username'] == '' || $_POST['password'] == ''){
-                            echo "<script type='text/javascript'>alert('ERROR : There are empty input!');</script>";
-                        }
-                        else{
-                            echo "<script type='text/javascript'>alert('ERROR : Wrong username or password!');</script>";
+                        } if ($_POST['username'] == '' || $_POST['password'] == '') {
+                            echo "<script type='text/javascript'>alert('ERROR : There are Empty Input!');</script>";
+                        } else {
+                            echo "<script type='text/javascript'>alert('ERROR : Wrong Username or Password!');</script>";
                         }
                     }
                 ?>
@@ -79,4 +73,4 @@
         </div>
     </div>
 </body>
-
+</html>
