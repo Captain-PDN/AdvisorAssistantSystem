@@ -11,10 +11,9 @@
 
     <title>CS Advisor Assistant System</title>
 
-    <link rel="stylesheet" href="../../css/adminCSS/adminHome.css" >
+    <link rel="stylesheet" href="../../css/adminCSS/adminHome.css">
     <link href="https://fonts.googleapis.com/css?family=K2D" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
@@ -55,11 +54,11 @@
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
                         <li><a href="home.php">Home</a></li>
-                        <li><a class="active" href="newAdvisor.php">+New Advisor</a></li>
+                        <li><a href="newAdvisor.php">+New Advisor</a></li>
                         <li><a href="newStudent.php">+New Student</a></li>
                         <li><a href="newSubject.php">+New Subject</a></li>
                         <li><a href="changePassword.php">Change Password</a></li>
-                        <li><a href="signUpAdmin.php">Sign-Up Admin</a></li>
+                        <li><a class="active" href="signUpAdmin.php">Sign-Up Admin</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="#"><span class="glyphicon glyphicon glyphicon-user"></span> Hello
@@ -74,37 +73,34 @@
 
         <div class="container" style="margin-bottom: 10px;">
             <div id="content-new-Advisor">
-                <h1 class="headText">Add New Advisor</h1>
+                <h1 class="headText">Sign-Up Admin</h1>
                 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data">
-                	<div class="form-group row">
-                        <label for="exampleFormControlInput1" class="col-sm-3 col-form-label">Advisor ID</label>
+                    <div class="form-group row">
+                        <label for="exampleFormControlInput1" class="col-sm-3 col-form-label">Name</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control form-control-lg" name="id" id="inputAdvisorLastname" placeholder="Advisor ID">
+                            <input type="text" class="form-control form-control-lg" name="name" placeholder="Name">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="exampleFormControlInput1" class="col-sm-3 col-form-label">Advisor Firstname</label>
+                        <label for="exampleFormControlInput1" class="col-sm-3 col-form-label">Username</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control form-control-lg" name="firstName" id="inputAdvisorFirstname"
-                                   placeholder="Advisor Firstname">
+                            <input type="text" class="form-control form-control-lg" name="username" placeholder="Username">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="exampleFormControlInput1" class="col-sm-3 col-form-label">Advisor Lastname</label>
+                        <label for="exampleFormControlInput1" class="col-sm-3 col-form-label">Password</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control form-control-lg" name="lastName" id="inputAdvisorLastname"
-                                   placeholder="Advisor Lastname">
+                            <input type="password" class="form-control form-control-lg" name="password" placeholder="Password">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="exampleFormControlInput1" class="col-sm-3 col-form-label">KU Email Address</label>
+                        <label for="exampleFormControlInput1" class="col-sm-3 col-form-label">Confirm Password</label>
                         <div class="col-sm-9">
-                            <input type="email" class="form-control form-control-lg" name="email" id="inputAdvisorEmail"
-                                   placeholder="advisorEmail@ku.th">
+                            <input type="password" class="form-control form-control-lg" name="confirmPassword" placeholder="Confirm Password">
                         </div>
                     </div>
                     <div style="width: fit-content; margin: 0 auto; text-align: center;">
-                        <button id="button-submit" type="submit" name="submit" class="btn">Submit</button>
+                        <button id="button-submit" type="submit" name="submit" class="btn">Sign-Up</button>
                     </div>
                 </form>
 
@@ -112,19 +108,16 @@
                     require "../../vendor/autoload.php";
                     use \Core\QueryBuilder;
 
-                    if (isset($_POST["submit"])){
-                        $qb = new QueryBuilder();
-
-                        if($_POST['firstName'] != '' && $_POST['lastName'] != '' && $_POST['email'] != '' && $_POST['id'] != ''){
-                            if(strpos($_POST["email"], '@ku.th') !== false){
-                                $qb->adminAddTeacher($_POST['id'], $_POST['email'], $_POST['firstName'], $_POST['lastName']);
-                                echo "<script type='text/javascript'>alert('Add New Advisor Complete!'); window.location.href = 'home.php';</script>";
+                    if (isset($_POST["submit"])) {
+                        if ($_POST['username'] != '' && $_POST['password'] != '' && $_POST['name'] != '' && $_POST['confirmPassword'] != '') {
+                            if ($_POST["password"] == $_POST["confirmPassword"]) {
+                                $qb = new QueryBuilder();
+                                $qb->registerAdmin($_POST['username'], $_POST['password'], $_POST['name']);
+                                echo "<script type='text/javascript'>alert('Sign-Up Complete!'); window.location.href = 'home.php';</script>";
+                            } else {
+                                echo "<script type='text/javascript'>alert('ERROR : Password not MATCH!');</script>";
                             }
-                            else{
-                                echo "<script type='text/javascript'>alert('ERROR : Wrong E-mail!');</script>";
-                            }
-                        }
-                        else{
+                        } else {
                             echo "<script type='text/javascript'>alert('ERROR : There are Empty Input!');</script>";
                         }
                     }

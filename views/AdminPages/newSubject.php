@@ -59,6 +59,7 @@
                         <li><a href="newStudent.php">+New Student</a></li>
                         <li><a class="active" href="newSubject.php">+New Subject</a></li>
                         <li><a href="changePassword.php">Change Password</a></li>
+                        <li><a href="signUpAdmin.php">Sign-Up Admin</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="#"><span class="glyphicon glyphicon glyphicon-user"></span> Hello <?php
