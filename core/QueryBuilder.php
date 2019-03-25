@@ -76,6 +76,12 @@ class QueryBuilder {
     public function addStudents($id, $email, $name, $lastName) {
         $query = $this->pdo->prepare('insert into `Student` values ("' .$id.'", "'.$email.'", "'.$name.'", "'.$lastName.'")');
         $query->execute();
+
+    }
+
+    public function addStatusCode($id,$courseID){
+        $query = $this->pdo->prepare('insert into `courseStudentStatus` values ("' .$id.'", "'.$courseID.'", "0"');
+        $query->execute();
     }
 
     public function recordStudentBehavior($studentID, $behaviorLevel, $behavior, $recorder) {
@@ -131,6 +137,26 @@ class QueryBuilder {
 
         $query = $this->pdo->prepare('insert into `TeachCourse` values ("'.$courseID.'", "'.$teacherID.'")');
         $query->execute();
+
+        $string = array_merge(range('a', 'z'), range('A', 'Z'), range(0, 9));
+        shuffle($string);
+        $courseCode = str_shuffle(substr(implode('', $string), 0, 5));
+
+        $query = $this->pdo->prepare('select CourseCode from CourseCode');
+        $query->execute();
+        $result = $query->fetchAll(\PDO::FETCH_OBJ);
+        $found = false;
+
+        foreach ($result as $rs) {
+            if ($rs->CourseCode == $courseCode) {
+                $found = true;
+            }
+        }
+
+        if (!$found) {
+            $query = $this->pdo->prepare('insert into `CourseCode` values ( "'.$courseID.'",  "'.$courseCode.'")');
+            $query->execute();
+        }
     }
 
     public function addminAddPreCourse($courseID, $preCourseID) {
@@ -201,6 +227,7 @@ class QueryBuilder {
         $query->execute();
         return $query->fetchAll(\PDO::FETCH_OBJ);
     }
+
 }
 
 ?>

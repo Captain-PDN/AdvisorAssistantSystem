@@ -68,20 +68,29 @@
                 </div>
             </nav>
 
+
             <?php
                 require "../../vendor/autoload.php";
                 use \Core\QueryBuilder;
 
                 $qb = new QueryBuilder();
                 $result = $qb->selectAll("CourseInfo");
+                $resultCourseCode = $qb->selectAll("CourseCode");
                 foreach ($result as $rs) {
                     if ($rs->CourseID == $_SESSION["courseID"]) {
                         $_SESSION["courseName"] = $rs->Name;
                     }
                 }
+                foreach ($resultCourseCode as $rs) {
+                    if ($rs->CourseID == $_SESSION["courseID"]) {
+                    $_SESSION["courseCode"] = $rs->CourseCode;
+                    }
+                }
             ?>
 
+
             <br><h1 class="headText"><?php echo $_SESSION["courseID"]."  ".$_SESSION["courseName"]; ?></h1>
+            <h1 class="headText" style="position: right">Class Code: <?php echo $_SESSION["courseCode"]; ?></h1>
 
             <div class="content-details-subject scrollIt">
                 <h1 class="headText">Student</h1>

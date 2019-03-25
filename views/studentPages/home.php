@@ -51,7 +51,6 @@
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
                         <li><a class="active" href="home.php">Home</a></li>
-                        <li><a href="scoresPages.php">Scores Pages</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="#"><span class="glyphicon glyphicon glyphicon-user"></span> Hello
@@ -73,11 +72,13 @@
                 <div class="form-group row">
                     <label for="exampleFormControlInput1" class="col-sm-6 col-form-label">Subject Code</label>
                     <div class="col-sm-6">
-                        <input type="text" class="form-control form-control-lg" id="inputSubjectCode" placeholder="Subject Code">
+                        <form name="form" action="" method="post">
+                            <input type="text" class="form-control form-control-lg" id="inputSubjectCode" name="inputSubjectCode" placeholder="Subject Code">
+                        </form>
                     </div>
                 </div>
-                <div>
-                    <button onclick="off()" id="button-submit-subject" type="submit" class="btn ">Submit</button>
+                <div style="text-align: center">
+                    <button onclick="off()" id="button-submit-subject" type="submit" class="btn" style="">Submit</button>
                 </div>
 
             </form>
@@ -94,52 +95,69 @@
                 $subject = $qb->selectAll("TeachCourse");
                 $info = $qb->selectAll("CourseInfo");
                 $teacher = $qb->selectAll("Teacher");
+                $resultCourseCode = $qb->selectAll("CourseCode");
+                $_POST["inputSubjectCode"] = null;
+//                foreach ($resultCourseCode as $resultCourse) {
+//            dump(1);
+//                    if($resultCourse->CourseCode == $_POST["inputSubjectCode"]) {
+//                        dump(1);
 
-                foreach ($person as $student) {
-                    if ($student->Email == $_SESSION['email']) {
-                        $id = $student->ID;
-                        foreach ($result as $rs) {
-                            if ($rs->StudentID == $id) {
-                                $courseID = $rs->CourseID;
-                                ?>
-                                <div class="col-sm-3 ">
-                                    <div class="showListSubject">
-                                        <div class="content">
-                                            <p><?= $rs->CourseID; ?></p>
-                                            <?php foreach ($info as $name) {
-                                                if ($name->CourseID == $courseID) {
-                                                    ?>
-                                                    <p><?= $name->Name; ?></p>
-                                                    <?php
-                                                }
-                                            } ?>
-                                            <hr>
-                                            <div class="bottom-content">
-                                                <div class="col-sm-8">
-                                                    <?php foreach ($subject as $s) {
-                                                        if ($s->CourseID == $courseID) {
-                                                            $teacherID = $s->TeacherID;
-                                                            foreach ($teacher as $adv) {
-                                                                if ($adv->ID == $teacherID) {
-                                                                    ?>
-                                                                    <p class="advisor-name"><?= $adv->Name." ".$adv->Lastname ?></>
-                                                                    <?php
-                                                                }
-                                                            }
+                        foreach ($person as $student) {
+                            if ($student->Email == $_SESSION['email']) {
+                                $id = $student->ID;
+                                foreach ($result as $rs) {
+                                    if ($rs->StudentID == $id) {
+                                        $courseID = $rs->CourseID;
+                                        ?>
+                                        <div class="col-sm-3 ">
+                                            <div class="showListSubject" >
+                                                <div class="content">
+                                                    <p><?= $rs->CourseID; ?></p>
+                                                    <?php foreach ($info as $name) {
+                                                        if ($name->CourseID == $courseID) {
+                                                            ?>
+                                                            <p><?= $name->Name; ?></p>
+                                                            <?php
                                                         }
                                                     } ?>
-                                                </div>
-                                                <div class="col-sm-4">
-                                                    <button type="button" class="btn">Go</button>
+                                                    <hr>
+                                                    <div class="bottom-content">
+                                                        <div class="col-sm-8">
+                                                            <?php foreach ($subject as $s) {
+                                                                if ($s->CourseID == $courseID) {
+                                                                    $teacherID = $s->TeacherID;
+                                                                    foreach ($teacher as $adv) {
+                                                                        if ($adv->ID == $teacherID) {
+                                                                            ?>
+                                                                            <p class="advisor-name"><?= $adv->Name . " " . $adv->Lastname ?></>
+                                                                            <?php
+                                                                        }
+                                                                    }
+                                                                }
+                                                            } ?>
+                                                        </div>
+                                                        <div class="col-sm-4">
+                                                            <?php
+
+                                                            foreach ($resultCourseCode as $rs) {
+                                                                if ($rs->CourseID == $_SESSION["courseID"]) {
+                                                                    $_SESSION["courseCode"] = $rs->CourseCode;
+                                                                }
+                                                            }
+                                                            ?>
+                                                            <a  href="scoresPages.php"
+                                                               class="btn">Go</a>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                                <?php
+                                        <?php
+                                    }
+                                }
                             }
-                        }
-                    }
+//                        }
+//                    }
                 }
             ?>
         </div>
@@ -151,8 +169,14 @@
         }
 
         function off() {
+
             document.getElementById("overlay").style.display = "none";
+
+
         }
+
+
+
     </script>
 </body>
 </html>

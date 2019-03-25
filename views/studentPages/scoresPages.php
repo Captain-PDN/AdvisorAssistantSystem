@@ -49,7 +49,6 @@
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
                         <li><a href="home.php">Home</a></li>
-                        <li><a class="active" href="scoresPages.php">Scores Pages</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="#"><span class="glyphicon glyphicon glyphicon-user"></span> Hello
@@ -64,35 +63,57 @@
 
         <div class="container" >
             <div id="content-score" >
-                <h1>Subject ID - Subject Name</h1>
-                <form>
-                    <div class="form-group row">
-                        <label for="exampleFormControlInput1" class="col-sm-6 col-form-label">Score</label>
-                        <div class="col-sm-6">
-                            <p>Scores</p>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="exampleFormControlInput1" class="col-sm-6 col-form-label">Score</label>
-                        <div class="col-sm-6">
-                            <p>Scores</p>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="exampleFormControlInput1" class="col-sm-6 col-form-label">Score</label>
-                        <div class="col-sm-6">
-                            <p>Scores</p>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="exampleFormControlInput1" class="col-sm-6 col-form-label">Score</label>
-                        <div class="col-sm-6">
-                            <p>Scores</p>
-                        </div>
-                    </div>
+                <?php
+                require "../../vendor/autoload.php";
+                use \Core\QueryBuilder;
+
+                $qb = new QueryBuilder();
+                $person = $qb->selectAll("Student");
+                $result = $qb->selectAll("TakeCourse");
+                $subject = $qb->selectAll("TeachCourse");
+                $info = $qb->selectAll("CourseInfo");
+                $teacher = $qb->selectAll("Teacher");
+                $scores = $qb->selectAll("CourseScore");
+
+                foreach ($person as $student) {
+                    if ($student->Email == $_SESSION['email']) {
+                    $id = $student->ID;
+                        foreach ($result as $rs) {
+                            if ($rs->StudentID == $id) {
+                                $courseID = $rs->CourseID;
+                                foreach ($info as $if){
+                                    if ($if->CourseID == $courseID ){
+                                        $courseName = $if->Name;
+                                        ?>
+                                        <h1><?= $courseID; ?> - <?= $courseName; ?></h1>
+                                        <form>
+                                            <?php
+                                            foreach ( $scores  as $sc){
+                                                if($sc->CourseID == $courseID and $sc->StudentID == $id) {
+
+                                                    ?>
+                                                    <div class="form-group row">
+                                                        <label for="exampleFormControlInput1"
+                                                               class="col-sm-6 col-form-label"><p><?= $sc->Topic; ?></p>
+                                                        </label>
+                                                        <div class="col-sm-6">
+                                                            <p><?= $sc->Score; ?></p>
+                                                        </div>
+                                                    </div>
+                                                    <?php
+                                                }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                    }
+                    ?>
                 </form>
             </div>
         </div>
-    </div>
+
 </body>
 </html>

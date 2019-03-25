@@ -147,6 +147,22 @@ CREATE TABLE IF NOT EXISTS `teacher` (
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- Dumping structure for table databaseall.courseCode
+CREATE TABLE IF NOT EXISTS `coursecode` (
+  `CourseID` char(8) NOT NULL DEFAULT '',
+  `CourseCode` char(10) NOT NULL DEFAULT '',
+  KEY `CourseID` (`CourseID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Dumping structure for table databaseall.courseStudentStatus
+CREATE TABLE IF NOT EXISTS `coursestudentstatus` (
+  `StudentID` char(10) NOT NULL DEFAULT '',
+  `CourseID` char(10) NOT NULL DEFAULT '',
+  `StatusCourse` int(1) NOT NULL DEFAULT '0',
+  KEY `CourseID` (`CourseID`),
+  KEY `StudentID` (`StudentID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
