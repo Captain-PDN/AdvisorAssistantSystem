@@ -80,19 +80,22 @@
                     <div class="form-group row">
                         <label for="exampleFormControlInput1" class="col-sm-3 col-form-label">Subject Name</label>
                         <div class="col-sm-9">
-                            <input type="text" name="name" class="form-control form-control-lg" id="inputSubjectName" placeholder="Subject Name">
+                            <input type="text" name="name" class="form-control form-control-lg" id="inputSubjectName"
+                                   placeholder="Subject Name">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="exampleFormControlInput1" class="col-sm-3 col-form-label">Subject ID</label>
                         <div class="col-sm-9">
-                            <input type="text" name="id" class="form-control form-control-lg" id="inputStudentID" placeholder="Subject ID">
+                            <input type="text" name="id" class="form-control form-control-lg" id="inputStudentID"
+                                   placeholder="Subject ID">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="exampleFormControlInput1" class="col-sm-3 col-form-label">Subject Credit</label>
                         <div class="col-sm-9">
-                            <input type="number" name="credit" min="1" max="5" class="form-control form-control-lg" id="inputSubjectCredit" placeholder="Subject Credit">
+                            <input type="number" name="credit" min="1" max="5" class="form-control form-control-lg"
+                                   id="inputSubjectCredit" placeholder="Subject Credit">
                         </div>
                     </div>
                     <div class="form-group row">
@@ -111,26 +114,24 @@
                         </div>
                     </div>
 
-                    <div style="width: fit-content; margin: 0 auto;">
+                    <div style="width: fit-content; margin: 0 auto; text-align: center;">
                         <button id="button-submit" type="submit" name="submit" class="btn">Submit</button>
                     </div>
                 </form>
 
                 <?php
-                    if (isset($_POST["submit"])){
+                    if (isset($_POST["submit"])) {
                         $qb = new QueryBuilder();
 
-                        if($_POST['name'] != '' && $_POST['id'] != '' && $_POST['credit'] != ''&& $_POST['advisor'] != ''){
-                            if($_POST['credit'] >= 1 && $_POST['credit'] <= 5){
+                        if ($_POST['name'] != '' && $_POST['id'] != '' && $_POST['credit'] != '' && $_POST['advisor'] != '') {
+                            if ($_POST['credit'] >= 1 && $_POST['credit'] <= 5) {
                                 $qb->addCourse($_POST['id'], $_POST['name'], $_POST['credit'], $_POST['advisor']);
-                                echo "<script type='text/javascript'>alert('Add new subject complete!'); window.location.href = 'home.php';</script>";
+                                echo "<script type='text/javascript'>alert('Add New Subject Complete!'); window.location.href = 'home.php';</script>";
+                            } else {
+                                echo "<script type='text/javascript'>alert('ERROR : Credit is Out of Range!');</script>";
                             }
-                            else{
-                                echo "<script type='text/javascript'>alert('ERROR : Credit out of range!');</script>";
-                            }
-                        }
-                        else{
-                            echo "<script type='text/javascript'>alert('ERROR : There are empty input!');</script>";
+                        } else {
+                            echo "<script type='text/javascript'>alert('ERROR : There are Empty Input!');</script>";
                         }
                     }
                 ?>

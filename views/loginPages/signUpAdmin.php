@@ -1,3 +1,12 @@
+<?php
+    if (!isset($_SESSION)) {
+        session_start();
+    } else {
+        session_destroy();
+        session_start();
+    }
+?>
+
 <!doctype html>
 <html>
 <head>
@@ -15,7 +24,8 @@
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+          integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <title>Login</title>
     <link href="https://fonts.googleapis.com/css?family=Signika+Negative:700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700i" rel="stylesheet">
@@ -35,7 +45,7 @@
                         <input type="text" name="name" id="adminInputPassword1" placeholder= "Name">
                     </div>
                     <div class="form-group">
-                        <input  class="form-control-lg" type="text" name="username" id="adminInputEmail1"  placeholder="Username">
+                        <input class="form-control-lg" type="text" name="username" id="adminInputEmail1"  placeholder="Username">
                     </div>
                     <div class="form-group">
                         <input type="password" name="password" id="adminInputPassword1" placeholder= "Password">

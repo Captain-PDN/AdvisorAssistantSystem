@@ -75,6 +75,12 @@
             <div id="content-new-Advisor">
                 <h1 class="headText">Add New Advisor</h1>
                 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data">
+                	<div class="form-group row">
+                        <label for="exampleFormControlInput1" class="col-sm-3 col-form-label">Advisor ID</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control form-control-lg" name="id" id="inputAdvisorLastname" placeholder="Advisor ID">
+                        </div>
+                    </div>
                     <div class="form-group row">
                         <label for="exampleFormControlInput1" class="col-sm-3 col-form-label">Advisor Firstname</label>
                         <div class="col-sm-9">
@@ -96,7 +102,7 @@
                                    placeholder="advisorEmail@ku.th">
                         </div>
                     </div>
-                    <div style="width: fit-content; margin: 0 auto;">
+                    <div style="width: fit-content; margin: 0 auto; text-align: center;">
                         <button id="button-submit" type="submit" name="submit" class="btn">Submit</button>
                     </div>
                 </form>
@@ -108,17 +114,17 @@
                     if (isset($_POST["submit"])){
                         $qb = new QueryBuilder();
 
-                        if($_POST['firstName'] != '' && $_POST['lastName'] != '' && $_POST['email'] != ''){
+                        if($_POST['firstName'] != '' && $_POST['lastName'] != '' && $_POST['email'] != '' && $_POST['id'] != ''){
                             if(strpos($_POST["email"], '@ku.th') !== false){
-                                $qb->adminAddTeacher($_POST['email'], $_POST['firstName'], $_POST['lastName']);
-                                echo "<script type='text/javascript'>alert('Add new advisor complete!'); window.location.href = 'home.php';</script>";
+                                $qb->adminAddTeacher($_POST['id'], $_POST['email'], $_POST['firstName'], $_POST['lastName']);
+                                echo "<script type='text/javascript'>alert('Add New Advisor Complete!'); window.location.href = 'home.php';</script>";
                             }
                             else{
-                                echo "<script type='text/javascript'>alert('ERROR : Wrong e-mail!');</script>";
+                                echo "<script type='text/javascript'>alert('ERROR : Wrong E-mail!');</script>";
                             }
                         }
                         else{
-                            echo "<script type='text/javascript'>alert('ERROR : There are empty input!');</script>";
+                            echo "<script type='text/javascript'>alert('ERROR : There are Empty Input!');</script>";
                         }
                     }
                 ?>

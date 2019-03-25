@@ -11,7 +11,6 @@
 
     <title>CS Advisor Assistant System</title>
 
-    <!--	<link rel="stylesheet" type="text/css" href="bulma-0.7.4/css/bulma.min.css">-->
     <link rel="stylesheet" href="../../css/advisorCSS/advisorCSS.css" >
     <link href="https://fonts.googleapis.com/css?family=K2D" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -38,7 +37,7 @@
     <div>
         <div style="background: url('../../images/sky-bg.jpg') no-repeat fixed; background-size: cover;">
             <span align="left">
-                <img src="../../images/KU_SubLogo.png" style="height: 200px; width: 200px;">
+                <img src="../../images/KU_SubLogo.png" style="height: 150px; width: 150px;">
             </span>
         </div>
 
@@ -55,10 +54,7 @@
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
                         <li><a class="active" href="home.php">Home</a></li>
-                        <li><a href="addNewStudent.php">Add New Student</a></li>
-                        <li><a href="newSubject.php">Add New Subject</a></li>
-                        <li><a href="studentDetails.php">Student Details</a></li>
-                        <li><a href="subjectDetails.php">Subject Details</a></li>
+                        <li><a href="newSubject.php">+New Subject</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="#"><span class="glyphicon glyphicon glyphicon-user"></span> Hello
@@ -104,9 +100,12 @@
     </div>
 
     <script>
-        function edit(element){
+        function edit(element) {
             var courseID = element.value;
-            $.post('../globalVariable.php', {'postCourseID': courseID}).done(function (data) {
+            var email = "<?php echo $_SESSION['email']; ?>";
+            var name = "<?php echo $_SESSION['name']; ?>";
+
+            $.post('../globalVariable.php', {'postemail': email, 'postname': name, 'postCourseID': courseID}).done(function (data) {
                 location.href = 'subjectDetails.php';
             });
         }

@@ -9,4 +9,6 @@
     $_SESSION["courseName"] = ' ';
 
     $_SESSION["topic"] = $_POST['postTopic'];
+
+    $_SESSION["stdID"] = $_POST['postStdID'];
 ?>

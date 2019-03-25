@@ -11,10 +11,10 @@
 
     <title>CS Advisor Assistant System</title>
 
-    <!--	<link rel="stylesheet" type="text/css" href="bulma-0.7.4/css/bulma.min.css">-->
     <link rel="stylesheet" href="../../css/advisorCSS/advisorCSS.css" >
     <link href="https://fonts.googleapis.com/css?family=K2D" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
@@ -38,7 +38,7 @@
     <div>
         <div style="background: url('../../images/sky-bg.jpg') no-repeat fixed; background-size: cover;">
             <span align="left">
-                <img src="../../images/KU_SubLogo.png" style="height: 200px; width: 200px;">
+                <img src="../../images/KU_SubLogo.png" style="height: 150px; width: 150px;">
             </span>
         </div>
 
@@ -55,10 +55,7 @@
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
                         <li><a href="home.php">Home</a></li>
-                        <li><a href="addNewStudent.php">Add New Student</a></li>
-                        <li><a class="active" href="newSubject.php">Add New Subject</a></li>
-                        <li><a href="studentDetails.php">Student Details</a></li>
-                        <li><a href="subjectDetails.php">Subject Details</a></li>
+                        <li><a class="active" href="newSubject.php">+New Subject</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="#"><span class="glyphicon glyphicon glyphicon-user"></span> Hello
@@ -71,7 +68,7 @@
             </div>
         </nav>
 
-        <div class="container" >
+        <div class="container" style="margin-bottom: 10px;">
             <div id="content-new-Advisor">
                 <h1 class="headText">Add New Subject</h1>
                 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data">
@@ -94,7 +91,7 @@
                         </div>
                     </div>
 
-                    <div style="width: fit-content; margin: 0 auto;">
+                    <div style="width: fit-content; margin: 0 auto; text-align: center;">
                         <button id="button-submit" type="submit" name="submit" class="btn">Submit</button>
                     </div>
                 </form>
@@ -103,25 +100,23 @@
                     require "../../vendor/autoload.php";
                     use \Core\QueryBuilder;
 
-                    if (isset($_POST["submit"])){
+                    if (isset($_POST["submit"])) {
                         $qb = new QueryBuilder();
-                        if($_POST['name'] != '' && $_POST['id'] != '' && $_POST['credit'] != ''){
-                            if($_POST['credit'] >= 1 && $_POST['credit'] <= 5){
+                        if ($_POST['name'] != '' && $_POST['id'] != '' && $_POST['credit'] != '') {
+                            if ($_POST['credit'] >= 1 && $_POST['credit'] <= 5) {
                                 $result = $qb->selectAll('Teacher');
-                                foreach($result as $rs){
-                                    if($_SESSION['email'] == $rs->Email){
+                                foreach ($result as $rs) {
+                                    if ($_SESSION['email'] == $rs->Email) {
                                         $id = $rs->ID;
                                     }
                                 }
                                 $qb->addCourse($_POST['id'], $_POST['name'], $_POST['credit'], $id);
-                                echo "<script type='text/javascript'>alert('Complete Add New Subject');</script>";
+                                echo "<script type='text/javascript'>alert('Add New Subject Complete!'); window.location.href = 'home.php';</script>";
+                            } else {
+                                echo "<script type='text/javascript'>alert('ERROR : Credit is Out of Range!');</script>";
                             }
-                            else{
-                                echo "<script type='text/javascript'>alert('ERROR : Credit - Out of Range');</script>";
-                            }
-                        }
-                        else{
-                            echo "<script type='text/javascript'>alert('ERROR : There are Empty Input');</script>";
+                        } else {
+                            echo "<script type='text/javascript'>alert('ERROR : There are Empty Input!');</script>";
                         }
                     }
                 ?>

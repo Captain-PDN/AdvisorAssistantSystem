@@ -95,7 +95,7 @@
                                    placeholder="Confirm Password">
                         </div>
                     </div>
-                    <div style="width: fit-content; margin: 0 auto;">
+                    <div style="width: fit-content; margin: 0 auto; text-align: center;">
                         <button id="button-submit" type="submit" name="submit" class="btn">Submit</button>
                     </div>
                 </form>
@@ -127,7 +127,7 @@
                                     if ($_POST['newPassword'] == $_POST['confirmPassword']) {
                                         $hash = password_hash($_POST['newPassword'], PASSWORD_BCRYPT);
                                         $qb->adminChangePassword($id, $hash);
-                                        echo "<script type='text/javascript'>alert('Change password successful!'); window.location.href = 'home.php';</script>";
+                                        echo "<script type='text/javascript'>alert('Change Password Successful!'); window.location.href = 'home.php';</script>";
                                     } else {
                                         echo "<script type='text/javascript'>alert('ERROR : Password don\'t match!');</script>";
                                     }
@@ -138,10 +138,10 @@
                                 }
                             }
                         } else {
-                            echo "<script type='text/javascript'>alert('ERROR : Old password is incorrect!');</script>";
+                            echo "<script type='text/javascript'>alert('ERROR : Old Password is Incorrect!');</script>";
                         }
                     } else {
-                        echo "<script type='text/javascript'>alert('ERROR : There are empty input!');</script>";
+                        echo "<script type='text/javascript'>alert('ERROR : There are Empty Input!');</script>";
                     }
                 }
                 ?>

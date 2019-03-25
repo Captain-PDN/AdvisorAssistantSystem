@@ -1,5 +1,10 @@
 <?php
-    session_start();
+    if (!isset($_SESSION)) {
+        session_start();
+    } else {
+        session_destroy();
+        session_start();
+    }
 ?>
 
 <!doctype html>
@@ -25,7 +30,8 @@
     <!-- google sign in script -->
     <script src="https://apis.google.com/js/platform.js" async defer></script>
 
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+          integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <title>Login</title>
     <link href="https://fonts.googleapis.com/css?family=Signika+Negative:700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700i" rel="stylesheet">
@@ -86,7 +92,7 @@
                     </div>
 
                     <br><br>
-                    <button onclick="location.href = 'preLogin.php';" type="button" style="width: 72%;">BACK</button>
+                    <button onclick="location.href = 'preLogin.php';" type="button" style="min-width: 50%;">BACK</button>
                 </form>
             </div>
         </div>

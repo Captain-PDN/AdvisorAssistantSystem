@@ -11,7 +11,6 @@
 
     <title>CS Advisor Assistant System</title>
 
-    <!--	<link rel="stylesheet" type="text/css" href="bulma-0.7.4/css/bulma.min.css">-->
     <link rel="stylesheet" href="../../css/advisorCSS/advisorCSS.css" >
     <link href="https://fonts.googleapis.com/css?family=K2D" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -37,9 +36,9 @@
 <body>
     <div>
         <div>
-            <div style="background: url('../../images/sky-bg.jpg') no-repeat fixed; background-size: cover;">
+            <div  style="background: url('../../images/sky-bg.jpg') no-repeat fixed; background-size: cover;">
                 <span align="left">
-                    <img src="../../images/KU_SubLogo.png" style="height: 200px; width: 200px;">
+                    <img src="../../images/KU_SubLogo.png" style="height: 150px; width: 150px;">
                 </span>
             </div>
 
@@ -56,10 +55,7 @@
                     <div class="collapse navbar-collapse" id="myNavbar">
                         <ul class="nav navbar-nav">
                             <li><a href="home.php">Home</a></li>
-                            <li><a href="addNewStudent.php">Add New Student</a></li>
-                            <li><a href="newSubject.php">Add New Subject</a></li>
-                            <li><a href="studentDetails.php">Student Details</a></li>
-                            <li><a class="active" href="subjectDetails.php">Subject Details</a></li>
+                            <li><a href="newSubject.php">+New Subject</a></li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
                             <li><a href="#"><span class="glyphicon glyphicon glyphicon-user"></span> Hello
@@ -72,48 +68,100 @@
                 </div>
             </nav>
 
-            <div class="container-fluid">
-                <div class="content-details-subject scrollIt">
-                    <?php
-                        require "../../vendor/autoload.php";
-                        use \Core\QueryBuilder;
+            <?php
+                require "../../vendor/autoload.php";
+                use \Core\QueryBuilder;
 
-                        $qb = new QueryBuilder();
-                        $result = $qb->selectAll("CourseInfo");
-                        foreach($result as $rs){
-                            if($rs->CourseID == $_SESSION["courseID"]){
-                                $_SESSION["courseName"] = $rs->Name;
-                            }
-                        }
-                    ?>
+                $qb = new QueryBuilder();
+                $result = $qb->selectAll("CourseInfo");
+                foreach ($result as $rs) {
+                    if ($rs->CourseID == $_SESSION["courseID"]) {
+                        $_SESSION["courseName"] = $rs->Name;
+                    }
+                }
+            ?>
 
-                    <h1 class="headText"><?php echo $_SESSION["courseID"]."  ".$_SESSION["courseName"]?></h1>
-                    <table class="table" style="text-align: center;">
-                        <thead>
-                        <tr>
-                            <th>Assignment</th>
-                            <th>Max Scores</th>
-                            <th>Score Rate (Percent)</th>
-                            <th>Delete </th>
-                        </tr>
-                        </thead>
-                        <tbody>
+            <br><h1 class="headText"><?php echo $_SESSION["courseID"]."  ".$_SESSION["courseName"]; ?></h1>
+
+            <div class="content-details-subject scrollIt">
+                <h1 class="headText">Student</h1>
+                <table class="table" style="text-align: center;">
+                    <thead>
+                    <tr>
+                        <th class="col-sm-2">Student ID</th>
+                        <th class="col-sm-3">Student Firstname</th>
+                        <th class="col-sm-3">Student Lastname</th>
+                        <th class="col-sm-2">Edit</th>
+                        <th class="col-sm-2">Delete</th>
+                    </tr>
+                    </thead>
+                    <tbody>
                         <?php
-                            $result = $qb->selectAll("CourseTopic")
+                            $qb = new QueryBuilder();
+                            $resultCourse = $qb->selectAll("TakeCourse");
+                            $resultStudent = $qb->selectAll("Student");
                         ?>
-                        <?php foreach($result as $rs):?>
+                        <?php foreach ($resultCourse as $rsc) { ?>
+                            <tr>
+                                <?php if ($rsc->CourseID == $_SESSION["courseID"]) { ?>
+                                    <td align="center"><?= $rsc->StudentID; ?></td>
+                                    <?php
+                                    foreach($resultStudent as $rss) {
+                                        if ($rss->ID == $rsc->StudentID) {
+                                            ?>
+                                            <td><?= $rss->Name; ?></td>
+                                            <td><?= $rss->Lastname; ?></td>
+                                            <td align="center">
+                                                <button class="btn btn-primary" value="<?= $rss->ID; ?>" onclick="editStudent(this)" name="editStd">Edit</button>
+                                            </td>
+                                            <form method="post" enctype="multipart/form-data">
+                                                <td align="center">
+                                                    <button class="btn btn-danger" name="deleteStd" value="<?= $rss->ID; ?>">Delete</button>
+                                                </td>
+                                            </form>
+                                            <?php
+                                        }
+                                    }
+                                }
+                                ?>
+                            </tr>
+                        <?php } ?>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="content-details-subject scrollIt">
+                <h1 class="headText">Assignment List</h1>
+                <table class="table" style="text-align: center;">
+                    <thead>
+                        <tr>
+                            <th class="col-sm-4">Assignment</th>
+                            <th class="col-sm-3">Max Scores</th>
+                            <th class="col-sm-3">Score Rate (Percent)</th>
+                            <th class="col-sm-2">Delete</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <?php
+                            $qb = new QueryBuilder();
+                            $result = $qb->selectAll('CourseTopic where CourseID="'.$_SESSION["courseID"].'"');
+                        ?>
+                        <?php foreach ($result as $rs) { ?>
                         <tr>
                             <td><?= $rs->Topic; ?></td>
-                            <td contenteditable="true"><?= $rs->MaxScore; ?></td>
-                            <td contenteditable="true"><?= $rs->Weigh; ?></td>
-                            <td>
-                                <button  class="btn btn-danger">Delete</button>
-                            </td>
+                            <td><?= $rs->MaxScore; ?></td>
+                            <td><?= $rs->Weight; ?></td>
+
+                            <form method="post" enctype="multipart/form-data">
+                                <td>
+                                    <button class="btn btn-danger" name="deleteTopic" value='<?= $rs->Topic; ?>'>Delete</button>
+                                </td>
+                            </form>
                         </tr>
-                        <?php endforeach; ?>
-                        </tbody>
-                    </table>
-                </div>
+                        <?php } ?>
+                    </tbody>
+                </table>
             </div>
 
             <div class="content-details-subject">
@@ -134,23 +182,25 @@
                     <div class="form-group row">
                         <label for="exampleFormControlInput1" class="col-sm-3 col-form-label">Score Rate (Percent)</label>
                         <div class="col-sm-9">
-                            <input type="number" name="weigh" min="0" max="100" class="form-control form-control-lg" id="inputScoreRate" placeholder="Score Rate (percent)">
+                            <input type="number" name="weight" min="0" max="100" class="form-control form-control-lg" id="inputScoreRate" placeholder="Score Rate (Percent)">
                         </div>
                     </div>
 
-                    <div style="width: fit-content;margin: 0 auto">
-                        <button id="btn-add-Assign" type="submit" name="submit" class="btn ">Submit</button>
+                    <div style="width: fit-content; margin: 0 auto; text-align: center;">
+                        <button id="btn-add-Assign" type="submit" name="submit" class="btn " style="background-color: lightgray;"><strong>Submit</strong></button>
                     </div>
                 </form>
             </div>
+
             <?php
-                if(isset($_POST["submit"])){
-                    if(!$_POST["topic"] == '' && !$_POST["max"] == '' && !$_POST["weigh"] == ''){
-                        $qb->addCourseTopic($_SESSION["courseID"], $_POST["topic"], $_POST["weigh"], $_POST["max"]);
-                        echo "<script type='text/javascript'>alert('Complete Add New Assignment');</script>";
-                    }
-                    else{
-                        echo "<script type='text/javascript'>alert('ERROR : There are Empty Input');</script>";
+                if (isset($_POST["submit"])) {
+                    if (!$_POST["topic"] == '' && !$_POST["max"] == '' && !$_POST["weight"] == '') {
+                        $qb->addCourseTopic($_SESSION["courseID"], $_POST["topic"], $_POST["weight"], $_POST["max"]);
+                        $qb->setScore($_SESSION["courseID"], $_POST["topic"]);
+                        echo "<script type='text/javascript'>alert('Add New Assignment Complete!');</script>";
+                        echo "<meta http-equiv='refresh' content='0'>";
+                    } else {
+                        echo "<script type='text/javascript'>alert('ERROR : There are Empty Input!');</script>";
                     }
                 }
             ?>
@@ -161,105 +211,190 @@
                     <div class="form-group row">
                         <label for="sel1" class="col-sm-3 col-form-label">Assignment Topic</label>
                         <div class="col-sm-9 form-control-lg">
-                        <select class="form-control" id="topicName">
-                        <?php
-                            $result = $qb->selectAll("CourseTopic WHERE CourseID=".$_SESSION["courseID"])
-                        ?>
-                        <?php foreach($result as $rs):?>
-                        <option><?= $rs->Topic; ?></option>
-                        <?php endforeach; ?>
-                            
-                        </select></div>
+                            <select class="form-control" id="topicName" name="select">
+                                <?php
+                                    $result = $qb->selectAll("CourseTopic WHERE CourseID=".$_SESSION["courseID"])
+                                ?>
+                                <option value="">----Select Topic----</option>
+                                <?php foreach($result as $rs):?>
+                                    <option value="<?= $rs->Topic; ?>"><?= $rs->Topic; ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
                     </div>
                     <div class="form-group row">
                         <label for="exampleFormControlInput1" class="col-sm-3 col-form-label">Score Announcement Date</label>
                         <div class="col-sm-9">
-                            <input type="date"  class="form-control  form-control-lg" id="date" placeholder="Max Score" name="date">
+                            <input type="date" class="form-control form-control-lg" id="date" placeholder="Max Score" name="date">
                         </div>
                     </div>
 
-                    <div style="width: fit-content;margin: 0 auto">
-                        <button id="assignAnnounc" type="submit" name="submit2" class="btn " onclick="announc()">Submit</button>
+                    <div style="width: fit-content; margin: 0 auto; text-align: center;">
+                        <button id="assignAnnounc" type="submit" name="submit2" class="btn " style="background-color: lightgray;"><strong>Submit</strong></button>
                     </div>
                 </form>
             </div>
+
             <?php
-                if(isset($_POST["submit2"])){
-                    if(!$_SESSION["courseID"] == "" && !$_SESSION["topic"] == ""){
-                        $qb->setTopicAnnounceDate($_SESSION["courseID"], $_SESSION["topic"], $_POST["date"]);
-                        echo "<script type='text/javascript'>alert('Complete Add Assignment Topic Announcement Date');</script>";
-                    }
-                    else{
+                if (isset($_POST["submit2"])) {
+                    if (!$_SESSION["courseID"] == "" && !$_POST["select"] == "" && !$_POST["date"] == "") {
+                        $qb->setTopicAnnounceDate($_SESSION["courseID"], $_POST["select"], $_POST["date"]);
+                        echo "<script type='text/javascript'>alert('Set Announcement Date Complete!');</script>";
+                    } else {
                         echo "<script type='text/javascript'>alert('ERROR : There are Empty Input');</script>";
                     }
                 }
             ?>
 
             <div class="content-details-subject">
-                <h1 class="headText">Announcement Score</h1>
-                <div class="form-group row" style="text-align: center">
-                    <div class="col-sm-1"></div>
-                    <div class="col-sm-2">
-                        <button id="btn-new-student" name="addNewStudent" type="submit" class="btn btn-manage-score">Add New Student</button>
-                    </div>
-                    <div class="custom-file col-sm-2">
-                        <input type="file" class="custom-file-input" id="customFile">
-                        <label class="custom-file-label" for="customFile">Add New Student: CSV File</label>
-                    </div>
-                    <div class="custom-file col-sm-2">
-                        <input type="file" class="custom-file-input " id="customFile">
-                        <label class="custom-file-label" for="customFile">Add Score: CSV File</label>
-                    </div>
-                    <div class="col-sm-2">
-                        <button id="btn-export-score" name="exportScore" type="submit" class="btn  btn-manage-score">Export Score</button>
-                    </div>
-                    <div class="col-sm-2">
-                        <button id="btn-import-grade" name="importGrade" type="submit" class="btn  btn-manage-score">Import Grade</button>
-                    </div>
-                    <div class="col-sm-1"></div>
-                </div>
-            </div>
+                <h1 class="headText">Advisor Utility</h1>
+                <div class="col-sm-2"></div>
 
-            <div class="content-details-subject scrollIt">
-                <h1 class="headText">Student</h1>
-                <table class="table" style="text-align: center;">
-                    <thead>
-                    <tr>
-                        <th>Student ID</th>
-                        <th>Student Firstname</th>
-                        <th>Student Lastname</th>
-                        <th>Edit</th>
-                        <th>Delete</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        $qb = new QueryBuilder();
-                        $result = $qb->selectAll("Student");
-                        ?>
-                        <?php foreach($result as $rs): ?>
-                            <tr>
-                                <td><?= $rs->ID; ?></td>
-                                <td><?= $rs->Name; ?></td>
-                                <td><?= $rs->Lastname; ?></td>
-                                <td>
-                                    <button class="btn btn-primary">Edit</button>
-                                </td>
-                                <td>
-                                    <button class="btn btn-danger">Delete</button>
-                                </td>
-                            </tr>
-                        <?php endforeach; ?>
-                    </tbody>
-                </table>
+                <div class="col-sm-4">
+                    <button id="btn-export-score" name="exportScore" type="submit" class="btn  btn-manage-score">Export Score</button>
+                </div>
+
+                <div class="col-sm-4">
+                    <button id="btn-import-grade" name="importGrade" type="submit" class="btn  btn-manage-score">Import Grade</button>
+                </div>
+
+                <div class="col-sm-2"></div>
+
+                <h3 class="headText" style="margin-bottom: 25px; margin-top: 100px; font-size: 1.5em;">Import CSV File</h3>
+
+                <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data">
+                    <div class="form-group row" style="text-align: center">
+                        <div class="col-sm-3"></div>
+                        
+                        <div class="custom-file col-sm-6">
+                            <div class="input-group" style="margin: 0 auto;">
+                                <span class="input-group-btn">
+                                    <span class="btn btn-primary" onclick="$(this).parent().find('input[type=file]').click();" style="width: 175px;">Add Student into Course</span>
+                                    <input name="newStudent" onchange="$(this).parent().parent().find('.form-control').html($(this).val().split(/[\\|/]/).pop());"
+                                        style="display: none;" type="file">
+                                </span>
+                                <span class="form-control"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-3"></div>
+                    </div>
+
+                    <div class="form-group row" style="text-align: center">
+                        <div class="col-sm-3"></div>
+
+                        <div class="custom-file col-sm-6">
+                            <div class="input-group" style="margin: 0 auto;">
+                                <span class="input-group-btn" >
+                                    <span class="btn btn-primary" onclick="$(this).parent().find('input[type=file]').click();" style="width: 175px;">Add Student's Score</span>
+                                    <input name="studentScore" onchange="$(this).parent().parent().find('.form-control').html($(this).val().split(/[\\|/]/).pop());"
+                                        style="display: none;" type="file">
+                                </span>
+                                <span class="form-control"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-3"></div>
+                    </div>
+
+                    <div style="width: fit-content; margin: 0 auto; text-align: center;">
+                        <button type="submit" name="submit3" class="btn " style="background-color: lightgray;"><strong>Submit</strong></button>
+                    </div>
+                </form>
+
+                <?php
+                    if (isset($_POST["submit3"])) {
+                        if (!empty($_FILES['newStudent']['name'])) {
+                            $target_dir = "";
+                            $target_file = $target_dir . basename($_FILES["newStudent"]["name"]);
+                            $fileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+                            if ($fileType == "csv" && !empty($target_file)) {
+                                move_uploaded_file($_FILES["newStudent"]["tmp_name"], $target_file);
+                                $myfile = fopen(basename($_FILES["newStudent"]["name"]), "r");
+                                $input = fread($myfile, filesize($_FILES["newStudent"]["name"]));
+                                if (!empty($input)) {
+                                    $array = preg_split("/[\s]+/", $input);
+                                    $arraySize = count($array);
+                                    for ($x = 0; $x < $arraySize; $x++) {
+                                        if ($array[$x] != "") {
+                                            $sub = explode(",", $array[$x]);
+                                            $id = $sub[0];
+                                            $name = $sub[1];
+                                            $lastName = $sub[2];
+                                            $email = $sub[3];
+                                            $qb->addStudents($id, $email, $name, $lastName);
+                                            $qb->addStudentsToCourse($_SESSION["courseID"], $id);
+                                        }
+                                    }
+                                }
+                                fclose($myfile);
+                                unlink(basename($_FILES["newStudent"]["name"]));
+
+                                echo "<script type='text/javascript'>alert('Add New Student Complete!');</script>";
+                                echo "<meta http-equiv='refresh' content='0'>";
+                            } else {
+                                echo "<script type='text/javascript'>alert('ERROR : Invalid Input!');</script>";
+                            }
+                        } else if (!empty($_FILES['studentScore']['name'])) {
+                            $target_dir = "";
+                            $target_file = $target_dir . basename($_FILES["studentScore"]["name"]);
+                            $fileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+                            if ($fileType == "csv" && !empty($target_file)) {
+                                move_uploaded_file($_FILES["studentScore"]["tmp_name"], $target_file);
+                                $myfile = fopen(basename($_FILES["studentScore"]["name"]), "r");
+                                $input = fread($myfile, filesize($_FILES["studentScore"]["name"]));
+                                if (!empty($input)) {
+                                    $array = preg_split("/[\s]+/", $input);
+                                    $arraySize = count($array);
+                                    for ($x = 0; $x < $arraySize; $x++) {
+                                        if ($array[$x] != "") {
+                                            $sub = explode(",", $array[$x]);
+                                            $topic = $sub[0];
+                                            $id = $sub[1];
+                                            $score = $sub[2];
+                                            $qb->updateScore($_SESSION["courseID"], $id, $topic, $score);
+                                        }
+                                    }
+                                }
+                                fclose($myfile);
+                                unlink(basename($_FILES["studentScore"]["name"]));
+
+                                echo "<script type='text/javascript'>alert('Update Student Score -> Complete!');</script>";
+                            } else {
+                                echo "<script type='text/javascript'>alert('ERROR : Invalid Input!');</script>";
+                            }
+                        }
+                    }
+                ?>
             </div>
         </div>
     </div>
 
+    <?php
+        if (isset($_POST["deleteTopic"])) {
+            $qb->removeTopic($_SESSION['courseID'], $_POST["deleteTopic"]);
+            echo "<script type='text/javascript'>alert('Remove Topic!');</script>";
+            echo "<meta http-equiv='refresh' content='0'>";
+        }
+
+        if (isset($_POST["deleteStd"])) {
+            $qb->removeStudentFromCourse($_SESSION['courseID'], $_POST["deleteStd"]);
+            echo "<script type='text/javascript'>alert('Remove Student!');</script>";
+            echo "<meta http-equiv='refresh' content='0'>";
+        }
+    ?>
+
     <script>
-        function announc(){
-            var topic = document.getElementById("topicName").value;
-            $.post('../globalVariable.php', {'postTopic': topic});
+        function editStudent(element) {
+            var studentID = element.value;
+
+            var courseID = "<?php echo $_SESSION['courseID']; ?>";
+            var email = "<?php echo $_SESSION['email']; ?>";
+            var name = "<?php echo $_SESSION['name']; ?>";
+
+            $.post('../globalVariable.php', {'postemail': email, 'postname': name, 'postCourseID': courseID, 'postStdID': studentID}).done(function (data) {
+                location.href = 'studentDetails.php';
+            });
         }
     </script>
 </body>
